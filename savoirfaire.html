@@ -138,29 +138,126 @@
             box-shadow: var(--shadow-medium);
             margin-bottom: 3rem;
         }
+            /* index.html - DANS LA BALISE <style> */
 
+/* ... Votre CSS existant ... */
+
+/* ========================================= */
+/* RÈGLES SPÉCIFIQUES POUR MOBILE     */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Cache les liens par défaut sur mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Aligne sous le header */
+        left: 0;
+        background-color: var(--primary-color); /* Fond pour le menu déroulant */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.open {
+        display: flex; /* Affiche la liste si la classe 'open' est ajoutée par JS */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        display: block; /* Prend toute la largeur pour être cliquable */
+        padding: 10px 20px;
+        color: white !important; /* Force le blanc pour être visible sur le fond noir */
+    }
+
+    .nav-links .btn-primary {
+        background: var(--accent-color);
+        border-radius: 5px;
+        margin: 10px auto;
+        padding: 8px 20px;
+    }
+    
+    /* 2. Style et positionnement du bouton Hamburger */
+    .hamburger-menu {
+        display: flex; /* Affiche le bouton sur mobile */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .hamburger-menu .line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--text-primary); /* Couleur des lignes du burger */
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animation de rotation du X */
+    .hamburger-menu.active .line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .line:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-menu.active .line:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+    
+    /* Ajustement de la navigation générale */
+    .container {
+        justify-content: space-between;
+    }
+    
+    .nav-links-desktop {
+        display: none; /* S'assurer que le menu desktop est masqué si vous l'avez gardé */
+    }
+}
+
+/* Règle pour l'ordinateur de bureau (pour s'assurer que le burger est caché) */
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none; /* Cache le bouton hamburger sur les grands écrans */
+    }
+}
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
 
     <header id="header">
-        <nav class="container">
-            <a href="index.html#accueil" class="logo">AVG HOUSE</a>
-            <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#produits">Collection</a></li>
-                <li><a href="savoirfaire.html">Savoir-Faire</a></li> 
-                <li><a href="index.html#apropos">À Propos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <nav class="container">
+        <a href="index.html" class="logo">AVG HOUSE</a>
+
+        <button class="hamburger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false" id="menuToggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <ul class="nav-links" id="navbarNav">
+            <li><a href="index.html#expertise">Savoir-Faire</a></li>
+            <li><a href="index.html#products">Créations</a></li>
+            <li><a href="tigresse.html">Sac Tigresse</a></li>
+            <li><a href="index.html#contact" class="btn-primary">Contact</a></li>
+        </ul>
+    </nav>
+</header>
     
     <section class="blog-section">
         <div class="container">
