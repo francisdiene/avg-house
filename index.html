@@ -270,9 +270,9 @@
             position: relative;
             border: 1px solid rgba(212, 175, 55, 0.1);
         }
-
+        
+        /* Retiré le transform:translateY(-8px) scale(1.02) du hover de la carte pour le produit Tigresse afin que l'effet ne se déclenche que sur le bouton */
         .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
             box-shadow: var(--shadow-heavy);
         }
 
@@ -351,6 +351,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none; /* Ajouté pour le lien <a> */
+            display: inline-block; /* Ajouté pour le lien <a> */
         }
 
         .view-details:hover {
@@ -688,6 +690,29 @@
             z-index: 1001;
             transition: width 0.1s ease;
         }
+        
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -733,11 +758,105 @@
                 flex-direction: column;
                 text-align: center;
             }
+             /* Responsive WhatsApp */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+                line-height: 50px;
+            }
         }
 
         .loading {
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
+        }
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--gradient-primary); /* Réutilise un gradient existant pour le contraste */
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--gradient-gold);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .newsletter-form button:hover {
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+        
+        @media (max-width: 600px) {
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 8px;
+            }
+            .newsletter-form input[type="email"],
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 0;
+            }
+            .newsletter-form button {
+                padding: 1rem 2.5rem;
+            }
+            .newsletter-form input[type="email"] {
+                border-bottom: 1px solid #eee;
+            }
         }
     </style>
 </head>
@@ -750,7 +869,7 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#produits">Collection</a></li>
-                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="savoirfaire.html">Savoir-Faire</a></li> <li><a href="#apropos">À Propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -775,7 +894,8 @@
             <p class="section-subtitle">Chaque création raconte une histoire d'élégance et de savoir-faire artisanal</p>
             
             <div class="product-grid">
-                <div class="product-card loading" onclick="openModal('Sac à Main Tigresse', 'Magnifique sac à main au motif tigresse, alliant élégance et modernité. Cuir de qualité supérieure avec finitions artisanales soignées. Un accessoire audacieux qui révèle votre personnalité unique.', '85€', 'Maroquinerie')">
+                
+                <div class="product-card loading" onclick="window.location.href='tigresse.html'">
                     <div class="product-image" style="background-image: url('images/sac_tigresse.jpg');"></div>
                     <div class="product-info">
                         <div class="product-category">Maroquinerie</div>
@@ -783,7 +903,7 @@
                         <div class="product-description">Motif audacieux, cuir premium, finitions artisanales</div>
                         <div class="product-footer">
                             <div class="product-price">85€</div>
-                            <button class="view-details">Voir détails</button>
+                            <a href="tigresse.html" class="view-details">Voir détails</a>
                         </div>
                     </div>
                 </div>
@@ -985,7 +1105,17 @@
             </div>
         </div>
     </section>
-
+   <section class="newsletter-section">
+        <div class="container">
+            <h2 class="loading">Rejoignez le Cercle AVG HOUSE</h2>
+            <p class="loading">Recevez en avant-première nos collections exclusives, les invitations aux ventes privées et les conseils d'entretien du cuir.</p>
+            
+            <form class="newsletter-form loading" onsubmit="handleNewsletterSubmit(event)">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Votre adresse email préférée" required aria-label="Adresse email pour la newsletter">
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1007,6 +1137,15 @@
             <button class="cta-button" onclick="contactForProduct()">Commander ce Produit</button>
         </div>
     </div>
+    
+    <a 
+        href="https://wa.me/33766721325?text=Bonjour%20Aida%20Victoria%20Guene%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20produits." 
+        target="_blank" 
+        class="whatsapp-float"
+        aria-label="Contactez-nous sur WhatsApp"
+    >
+        💬
+    </a>
 
     <script>
         function updateProgressBar() {
@@ -1134,14 +1273,37 @@
         });
 
         document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            // Le sac tigresse a déjà un onclick, on s'assure que l'effet visuel reste cohérent
+            if (card.querySelector('a.view-details')) {
+                 card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            }
         });
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const emailInput = document.getElementById('newsletterEmail');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Inscription en cours...';
+            submitBtn.disabled = true;
+            
+            // Simule l'envoi des données (en réalité, vous utiliseriez ici une API comme Mailchimp ou Sendinblue)
+            setTimeout(() => {
+                alert(`✨ Merci ! L'adresse ${emailInput.value} est bien enregistrée dans le Cercle AVG HOUSE. Vous recevrez bientôt votre première newsletter.`);
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1800);
+        }
     </script>
 </body>
-</html
+</html>
