@@ -270,9 +270,9 @@
             position: relative;
             border: 1px solid rgba(212, 175, 55, 0.1);
         }
-        
-        /* Retiré le transform:translateY(-8px) scale(1.02) du hover de la carte pour le produit Tigresse afin que l'effet ne se déclenche que sur le bouton */
+
         .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
             box-shadow: var(--shadow-heavy);
         }
 
@@ -351,8 +351,6 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none; /* Ajouté pour le lien <a> */
-            display: inline-block; /* Ajouté pour le lien <a> */
         }
 
         .view-details:hover {
@@ -422,6 +420,93 @@
             background-position: center;
             box-shadow: var(--shadow-medium);
         }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--gradient-primary); /* Réutilise un gradient existant pour le contraste */
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--gradient-gold);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .newsletter-form button:hover {
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+        
+        @media (max-width: 600px) {
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 8px;
+            }
+            .newsletter-form input[type="email"],
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 0;
+            }
+            .newsletter-form button {
+                padding: 1rem 2.5rem;
+            }
+            .newsletter-form input[type="email"] {
+                border-bottom: 1px solid #eee;
+            }
+        }
+
 
         /* Contact Section */
         .contact {
@@ -572,6 +657,32 @@
             text-align: center;
             flex: 1;
         }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
 
         /* Modal */
         .modal {
@@ -690,29 +801,6 @@
             z-index: 1001;
             transition: width 0.1s ease;
         }
-        
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            line-height: 60px;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -758,90 +846,16 @@
                 flex-direction: column;
                 text-align: center;
             }
-             /* Responsive WhatsApp */
+            
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                bottom: 20px;
-                right: 20px;
                 font-size: 25px;
                 line-height: 50px;
+                bottom: 20px;
+                right: 20px;
             }
-        }
-
-        .loading {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        /* Newsletter Section */
-        .newsletter-section {
-            background: var(--gradient-primary); /* Réutilise un gradient existant pour le contraste */
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .newsletter-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .newsletter-section p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .newsletter-form input[type="email"] {
-            flex-grow: 1;
-            padding: 1.2rem 1.5rem;
-            border: none;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background: white;
-        }
-
-        .newsletter-form input[type="email"]:focus {
-            outline: none;
-        }
-
-        .newsletter-form button {
-            background: var(--gradient-gold);
-            color: white;
-            border: none;
-            padding: 1.2rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .newsletter-form button:hover {
-            opacity: 0.9;
-            transform: scale(1.01);
-        }
-        
-        @media (max-width: 600px) {
+            
             .newsletter-form {
                 flex-direction: column;
                 border-radius: 8px;
@@ -858,27 +872,131 @@
                 border-bottom: 1px solid #eee;
             }
         }
+
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        /* index.html - DANS LA BALISE <style> */
+
+/* ... Votre CSS existant ... */
+
+/* ========================================= */
+/* RÈGLES SPÉCIFIQUES POUR MOBILE     */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Cache les liens par défaut sur mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Aligne sous le header */
+        left: 0;
+        background-color: var(--primary-color); /* Fond pour le menu déroulant */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.open {
+        display: flex; /* Affiche la liste si la classe 'open' est ajoutée par JS */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        display: block; /* Prend toute la largeur pour être cliquable */
+        padding: 10px 20px;
+        color: white !important; /* Force le blanc pour être visible sur le fond noir */
+    }
+
+    .nav-links .btn-primary {
+        background: var(--accent-color);
+        border-radius: 5px;
+        margin: 10px auto;
+        padding: 8px 20px;
+    }
+    
+    /* 2. Style et positionnement du bouton Hamburger */
+    .hamburger-menu {
+        display: flex; /* Affiche le bouton sur mobile */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .hamburger-menu .line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--text-primary); /* Couleur des lignes du burger */
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animation de rotation du X */
+    .hamburger-menu.active .line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .line:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-menu.active .line:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+    
+    /* Ajustement de la navigation générale */
+    .container {
+        justify-content: space-between;
+    }
+    
+    .nav-links-desktop {
+        display: none; /* S'assurer que le menu desktop est masqué si vous l'avez gardé */
+    }
+}
+
+/* Règle pour l'ordinateur de bureau (pour s'assurer que le burger est caché) */
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none; /* Cache le bouton hamburger sur les grands écrans */
+    }
+}
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
 
     <header id="header">
-        <nav class="container">
-            <a href="#accueil" class="logo">AVG HOUSE</a>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#produits">Collection</a></li>
-                <li><a href="savoirfaire.html">Savoir-Faire</a></li> <li><a href="#apropos">À Propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <nav class="container">
+        <a href="index.html" class="logo">AVG HOUSE</a>
+
+        <button class="hamburger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false" id="menuToggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <ul class="nav-links" id="navbarNav">
+            <li><a href="index.html#expertise">Savoir-Faire</a></li>
+            <li><a href="index.html#products">Créations</a></li>
+            <li><a href="tigresse.html">Sac Tigresse</a></li>
+            <li><a href="index.html#contact" class="btn-primary">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero" id="accueil">
         <div class="hero-content loading">
@@ -894,8 +1012,7 @@
             <p class="section-subtitle">Chaque création raconte une histoire d'élégance et de savoir-faire artisanal</p>
             
             <div class="product-grid">
-                
-                <div class="product-card loading" onclick="window.location.href='tigresse.html'">
+                <a href="tigresse.html" class="product-card loading"> 
                     <div class="product-image" style="background-image: url('images/sac_tigresse.jpg');"></div>
                     <div class="product-info">
                         <div class="product-category">Maroquinerie</div>
@@ -903,10 +1020,10 @@
                         <div class="product-description">Motif audacieux, cuir premium, finitions artisanales</div>
                         <div class="product-footer">
                             <div class="product-price">85€</div>
-                            <a href="tigresse.html" class="view-details">Voir détails</a>
+                            <button class="view-details">Voir détails</button>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <div class="product-card loading" onclick="openModal('Sac à Main Beige', 'Sac à main intemporel en ton beige naturel, incarnation de l\'élégance discrète. Design sophistiqué avec compartiments multiples pour un quotidien organisé avec style.', '75€', 'Maroquinerie')">
                     <div class="product-image" style="background-image: url('images/sac_beige.jpg');"></div>
@@ -1028,7 +1145,18 @@
             </div>
         </div>
     </section>
-
+    
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="loading">Rejoignez le Cercle AVG HOUSE</h2>
+            <p class="loading">Recevez en avant-première nos collections exclusives, les invitations aux ventes privées et les conseils d'entretien du cuir.</p>
+            
+            <form class="newsletter-form loading" onsubmit="handleNewsletterSubmit(event)">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Votre adresse email préférée" required aria-label="Adresse email pour la newsletter">
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-content">
@@ -1105,17 +1233,7 @@
             </div>
         </div>
     </section>
-   <section class="newsletter-section">
-        <div class="container">
-            <h2 class="loading">Rejoignez le Cercle AVG HOUSE</h2>
-            <p class="loading">Recevez en avant-première nos collections exclusives, les invitations aux ventes privées et les conseils d'entretien du cuir.</p>
-            
-            <form class="newsletter-form loading" onsubmit="handleNewsletterSubmit(event)">
-                <input type="email" name="email" id="newsletterEmail" placeholder="Votre adresse email préférée" required aria-label="Adresse email pour la newsletter">
-                <button type="submit">S'inscrire</button>
-            </form>
-        </div>
-    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1146,6 +1264,7 @@
     >
         💬
     </a>
+
 
     <script>
         function updateProgressBar() {
@@ -1243,6 +1362,29 @@
                 submitBtn.disabled = false;
             }, 1500);
         }
+        
+        // FONCTION AJOUTÉE POUR LA NEWSLETTER
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const emailInput = document.getElementById('newsletterEmail');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Inscription en cours...';
+            submitBtn.disabled = true;
+            
+            // Simule l'envoi des données
+            setTimeout(() => {
+                alert(`✨ Merci ! L'adresse ${emailInput.value} est bien enregistrée dans le Cercle AVG HOUSE. Vous recevrez bientôt votre première newsletter.`);
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1800);
+        }
+        // FIN FONCTION NEWSLETTER
 
         window.addEventListener('scroll', () => {
             updateProgressBar();
@@ -1273,37 +1415,44 @@
         });
 
         document.querySelectorAll('.product-card').forEach(card => {
-            // Le sac tigresse a déjà un onclick, on s'assure que l'effet visuel reste cohérent
-            if (card.querySelector('a.view-details')) {
-                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            }
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
-        function handleNewsletterSubmit(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const emailInput = document.getElementById('newsletterEmail');
-            const submitBtn = form.querySelector('button[type="submit"]');
-            
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Inscription en cours...';
-            submitBtn.disabled = true;
-            
-            // Simule l'envoi des données (en réalité, vous utiliseriez ici une API comme Mailchimp ou Sendinblue)
-            setTimeout(() => {
-                alert(`✨ Merci ! L'adresse ${emailInput.value} est bien enregistrée dans le Cercle AVG HOUSE. Vous recevrez bientôt votre première newsletter.`);
-                form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1800);
-        }
+        // index.html - DANS LA BALISE <script>
+
+// Récupération des éléments du menu
+const menuToggle = document.getElementById('menuToggle');
+const navBar = document.getElementById('navbarNav');
+
+if (menuToggle && navBar) {
+    menuToggle.addEventListener('click', function() {
+        // 1. Bascule l'affichage de la liste des liens
+        navBar.classList.toggle('open');
+        
+        // 2. Bascule l'icône du hamburger (pour le transformer en X)
+        this.classList.toggle('active');
+        
+        // 3. Met à jour l'accessibilité
+        const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    // Optionnel : Ferme le menu après avoir cliqué sur un lien (utile sur mobile)
+    navBar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navBar.classList.remove('open');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
+// ... Votre autre JavaScript existant (ProgressBar, Animations, Modal, etc.) ...
     </script>
 </body>
 </html>
