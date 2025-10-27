@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AVG HOUSE - Aida Victoria Guene. Maroquinerie artisanale de luxe et cosmétiques naturels. Créations uniques faites main en France.">
+    <meta name="keywords" content="maroquinerie, sacs à main, cosmétiques, artisanal, luxe, France, AVG HOUSE">
+    <meta name="author" content="Aida Victoria Guene">
+    <title>AVG HOUSE - Aida Victoria Guene | Maroquinerie & Cosmétiques Artisanaux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --accent-secondary: #b8860b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --background-light: #fafafa;
+            --background-white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 40px rgba(0,0,0,0.12);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-light);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* NOUVEAU CSS pour le menu mobile */
+        .hamburger-menu {
+            display: none; /* Caché par défaut sur grand écran */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .hamburger-menu .bar {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+            transform-origin: 1px;
+        }
+
+        /* Animation de transformation en 'X' */
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        /* FIN NOUVEAU CSS */
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--gradient-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 8rem 0;
+            background: var(--background-light);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 5rem;
+            font-weight: 300;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--background-white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .product-image {
+            height: 320px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .view-details {
+            background: none;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-details:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: var(--background-white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: var(--gradient-primary);
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: var(--background-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--background-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--background-white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--background-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: var(--background-white);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient-gold);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            text-align: center;
+            flex: 1;
+        }
+        
+        /* Footer Navigation for other pages */
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--background-white);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-heavy);
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to { 
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--accent-color);
+        }
+
+        #modalTitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        #modalCategory {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        #modalDescription {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        #modalPrice {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-gold);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-nav {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Afficher le bouton hamburger */
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            /* Cacher la navigation par défaut */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background: var(--background-white);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%); /* Masqué hors écran */
+                transition: transform 0.4s ease-in-out;
+                gap: 2rem;
+                padding-top: 5rem;
+            }
+
+            /* Afficher la navigation quand la classe 'open' est présente */
+            .nav-links.open {
+                transform: translateX(0); /* Déplacé à l'écran */
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                order: 3; /* Placer la navigation à la fin */
+            }
+        }
+
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+
+.social-links {
+    display: flex; /* Utilisation de Flexbox pour aligner les icônes */
+    justify-content: center; /* Centrer les icônes horizontalement */
+    gap: 20px; /* Espace entre les icônes */
+    margin-bottom: 25px; /* Espace au-dessus des droits d'auteur */
+}
+
+.social-links a {
+    color: var(--color-light); /* Couleur claire pour l'icône (blanc/gris clair) */
+    font-size: 24px; /* Taille de l'icône */
+    transition: color 0.3s ease; /* Transition douce pour l'effet de survol */
+}
+
+.social-links a:hover {
+    color: var(--color-primary); /* Couleur jaune/or au survol, cohérente avec votre thème */
+}
+.whatsapp-float {
+    /* Positionnement fixe en bas à droite */
+    position: fixed;
+    bottom: 30px; /* 30px du bas */
+    right: 30px; /* 30px de la droite */
+    
+    /* Taille et style du cercle */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Vert officiel de WhatsApp */
+    color: white;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    text-align: center;
+    line-height: 60px; /* Centrer l'icône verticalement */
+    font-size: 30px; /* Taille de l'icône WhatsApp */
+    z-index: 999; /* Assurer qu'il est au-dessus de tout le contenu */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Légère ombre */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E; /* Assombrir légèrement au survol */
+    transform: scale(1.05); /* Petit effet de zoom */
+}
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header id="header">
+        <nav class="container">
+            <a href="#accueil" class="logo">AVG HOUSE</a>
+            <ul class="nav-links" id="navbarNav">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#produits">Collection</a></li>
+                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                <li><a href="cgv.html">CGV</a></li>
+            </ul>
+            <button class="hamburger-menu" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero" id="accueil">
+        <div class="hero-content loading">
+            <h1>AVG HOUSE</h1>
+            <p class="hero-subtitle">Aida Victoria Guene - L'Art de la Maroquinerie & Cosmétiques d'Exception</p>
+            <a href="#produits" class="cta-button">Découvrir la Collection</a>
+        </div>
+    </section>
+
+    <section class="products" id="produits">
+        <div class="container">
+            <h2 class="section-title">Notre Collection</h2>
+            <p class="section-subtitle">Chaque création raconte une histoire d'élégance et de savoir-faire artisanal</p>
+            
+            <div class="product-grid">
+                <div class="product-card loading" onclick="openModal('Sac à Main Tigresse', 'Magnifique sac à main au motif tigresse, alliant élégance et modernité. Cuir de qualité supérieure avec finitions artisanales soignées. Un accessoire audacieux qui révèle votre personnalité unique.', '15€', 'Maroquinerie')">
+                    <div class="product-image" style="background-image: url('images/sac_tigresse.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Maroquinerie</div>
+                        <div class="product-name">Sac à Main Tigresse</div>
+                        <div class="product-description">Motif audacieux, cuir premium, finitions artisanales</div>
+                        <div class="product-footer">
+                            <div class="product-price">15€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Sac à Main Beige', 'Sac à main intemporel en ton beige naturel, incarnation de l\'élégance discrète. Design sophistiqué avec compartiments multiples pour un quotidien organisé avec style.', '10€', 'Maroquinerie')">
+                    <div class="product-image" style="background-image: url('images/sac_beige.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Maroquinerie</div>
+                        <div class="product-name">Sac à Main Beige</div>
+                        <div class="product-description">Élégance intemporelle, compartiments pratiques</div>
+                        <div class="product-footer">
+                            <div class="product-price">10€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Sac à Main Dark', 'Sac à main sophistiqué aux tons sombres, parfait pour un look contemporain et raffiné. Matériaux nobles et architecture moderne pour la femme d\'aujourd\'hui.', '9€', 'Maroquinerie')">
+                    <div class="product-image" style="background-image: url('images/sac_dark.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Maroquinerie</div>
+                        <div class="product-name">Sac à Main Dark</div>
+                        <div class="product-description">Sophistication moderne, matériaux nobles</div>
+                        <div class="product-footer">
+                            <div class="product-price">9€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Sac à Main Jean', 'Sac casual en denim premium, l\'alliance parfaite entre décontraction et style. Robuste et tendance, il s\'adapte à votre lifestyle dynamique avec originalité.', '10€', 'Maroquinerie')">
+                    <div class="product-image" style="background-image: url('images/sac_jean.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Maroquinerie</div>
+                        <div class="product-name">Sac à Main Jean</div>
+                        <div class="product-description">Style casual premium, résistance et tendance</div>
+                        <div class="product-footer">
+                            <div class="product-price">10€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Sacoche Personnalisée', 'Sacoche sur mesure, expression de votre individualité. Design unique créé selon vos désirs, fonctionnalité adaptée à vos besoins spécifiques.', '15€', 'Sur Mesure')">
+                    <div class="product-image" style="background-image: url('images/sacoche_perso.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Sur Mesure</div>
+                        <div class="product-name">Sacoche Personnalisée</div>
+                        <div class="product-description">Création unique, adaptée à vos besoins</div>
+                        <div class="product-footer">
+                            <div class="product-price">15€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Huile Essentielle 50ml', 'Huile essentielle artisanale pure et naturelle. Formulation exclusive aux vertus nourrissantes et apaisantes. L\'essence de la beauté naturelle en 50ml.', '10€', 'Cosmétiques')">
+                    <div class="product-image" style="background-image: url('images/huile_50ml.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Cosmétiques</div>
+                        <div class="product-name">Huile Essentielle 50ml</div>
+                        <div class="product-description">Pure et naturelle, formulation exclusive</div>
+                        <div class="product-footer">
+                            <div class="product-price">10€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Set Gloss & Crayon', 'Set cosmétique d\'exception comprenant gloss et crayon à lèvres. Formules innovantes longue tenue, palette de couleurs sophistiquées pour sublimer votre sourire naturel.', '3€', 'Cosmétiques')">
+                    <div class="product-image" style="background-image: url('images/gloss_crayon.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Cosmétiques</div>
+                        <div class="product-name">Set Gloss & Crayon</div>
+                        <div class="product-description">Formules longue tenue, couleurs sophistiquées</div>
+                        <div class="product-footer">
+                            <div class="product-price">3€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card loading" onclick="openModal('Essence Parfumée', 'Essence parfumée artisanale aux notes envoûtantes et complexes. Fragrance signature créée avec des ingrédients d\'exception pour une expérience olfactive unique.', '6€', 'Cosmétiques')">
+                    <div class="product-image" style="background-image: url('images/essence_parfumee.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Cosmétiques</div>
+                        <div class="product-name">Essence Parfumée</div>
+                        <div class="product-description">Notes envoûtantes, fragrance signature</div>
+                        <div class="product-footer">
+                            <div class="product-price">6€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card loading" onclick="openModal('Musc Amirah (5ml)', 'Huile de parfum Amirah pure et intense. Une essence de luxe pour une tenue longue durée.', '5€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/musk_amirah.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Musc Amirah (5ml)</div>
+        <div class="product-description">Huile de parfum concentrée 5ml</div>
+        <div class="product-footer">
+            <div class="product-price">5€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Musc Oudelle (5ml)', 'Huile de parfum Oudelle, mélange envoûtant d\'oud et de notes orientales. Parfaite pour les amateurs de fragrances puissantes.', '5€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/musk_oudelle.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Musc Oudelle (5ml)</div>
+        <div class="product-description">Huile de parfum concentrée 5ml</div>
+        <div class="product-footer">
+            <div class="product-price">5€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Musc Sahar (5ml)', 'Musc Sahar, une fragrance douce et poudrée. Subtile et élégante, elle se porte au quotidien.', '4€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/musk_sahar.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Musc Sahar (5ml)</div>
+        <div class="product-description">Huile de parfum concentrée 5ml</div>
+        <div class="product-footer">
+            <div class="product-price">4€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Faux Cils Volume', 'Cils de qualité professionnelle pour un regard intense et un volume spectaculaire. Faciles à poser et réutilisables.', '1,50€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/cils.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Faux Cils Volume</div>
+        <div class="product-description">Cils de qualité professionnelle</div>
+        <div class="product-footer">
+            <div class="product-price">1,50€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Gel Douche Naturel', 'Gel douche formulé avec des ingrédients naturels pour un nettoyage doux et une hydratation en profondeur.', '5€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/gel_douche.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Gel Douche Naturel</div>
+        <div class="product-description">Gel douche revitalisant 250ml</div>
+        <div class="product-footer">
+            <div class="product-price">5€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Gommage Corporel', 'Exfoliant corporel pour une peau douce et renouvelée. Élimine les impuretés et les peaux mortes en douceur.', '3,50€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/gommage_corporel.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Gommage Corporel</div>
+        <div class="product-description">Gommage exfoliant doux</div>
+        <div class="product-footer">
+            <div class="product-price">3,50€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Lait Corporel Nourrissant', 'Lait corporel riche et nourrissant, idéal pour une hydratation quotidienne et une peau satinée.', '4€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/lait_corporel.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Lait Corporel Nourrissant</div>
+        <div class="product-description">Lait hydratant pour le corps</div>
+        <div class="product-footer">
+            <div class="product-price">4€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Savon Naturel Artisanal', 'Savon fabriqué selon une méthode artisanale. Nettoie et parfume délicatement la peau pour une utilisation quotidienne.', '2,50€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/savon.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Savon Naturel Artisanal</div>
+        <div class="product-description">Savon artisanal pour le corps</div>
+        <div class="product-footer">
+            <div class="product-price">2,50€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Savon Nila Bleu', 'Savon enrichi en poudre de Nila Bleu, réputée pour ses propriétés éclaircissantes et adoucissantes sur la peau.', '6€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/savon_nila_bleu.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Savon Nila Bleu</div>
+        <div class="product-description">Savon éclaircissant & adoucissant</div>
+        <div class="product-footer">
+            <div class="product-price">6€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Parfum Sacandal Homme', 'Eau de parfum boisé et épicé, idéal pour l\'homme moderne. Formule longue tenue.', '25€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/sacandal_homme_kim_kardashians.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Parfum Sacandal Homme</div>
+        <div class="product-description">Eau de Parfum Homme</div>
+        <div class="product-footer">
+            <div class="product-price">25€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Parfum Kim Kardashians', 'Eau de parfum floral et sensuel, inspiré par la célébrité. Une fragrance féminine captivante.', '20€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/sacandal_homme_kim_kardashians.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Parfum Kim Kardashians</div>
+        <div class="product-description">Eau de Parfum Femme</div>
+        <div class="product-footer">
+            <div class="product-price">20€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Parfum Homme Idéal', 'Parfum classique et intemporel pour homme. Sillage puissant et notes raffinées pour une présence assurée.', '20€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/homme_ideal.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Parfum Homme Idéal</div>
+        <div class="product-description">Eau de Parfum Homme</div>
+        <div class="product-footer">
+            <div class="product-price">20€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Bracelet Moderne', 'Bracelet au design épuré et contemporain. Un accessoire tendance pour moderniser votre style.', '5€', 'Accessoires')">
+    <div class="product-image" style="background-image: url('images/bracelet.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Accessoires</div>
+        <div class="product-name">Bracelet Moderne</div>
+        <div class="product-description">Bracelet tendance et contemporain</div>
+        <div class="product-footer">
+            <div class="product-price">5€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Khâmarîn (Racine de Vétiver)', 'Ensemble de Khâmarîn (5 branches) composé de racine de vétiver parfumée. Traditionnellement utilisée comme plante médicinale, la racine de vétiver est reconnue pour ses propriétés digestives, apaisantes et détoxifiantes, et est un remède clé pour le bien-être féminin. Idéal pour parfumer et assainir votre intérieur.', '5€', 'Accessoires')">
+    <div class="product-image" style="background-image: url('images/khamarin.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Accessoires</div>
+        <div class="product-name">Khâmarîn (Racine de Vétiver)</div>
+        <div class="product-description">5 branches parfumées pour l'intérieur</div>
+        <div class="product-footer">
+            <div class="product-price">5€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Diffuseur de Parfum Maison', 'Diffuseur de parfum élégant pour un intérieur parfumé. Idéal pour créer une ambiance relaxante et olfactive raffinée.', '6€', 'Cosmétiques')">
+    <div class="product-image" style="background-image: url('images/diffuseur_de_parfum_maison.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Cosmétiques</div>
+        <div class="product-name">Diffuseur de Parfum Maison</div>
+        <div class="product-description">Diffuseur d'ambiance de luxe</div>
+        <div class="product-footer">
+            <div class="product-price">6€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 1)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
+    <div class="product-image" style="background-image: url('images/baya_personnalisé.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Sur Mesure</div>
+        <div class="product-name">Baya Personnalisé 1</div>
+        <div class="product-description">Création unique de Baya</div>
+        <div class="product-footer">
+            <div class="product-price">7€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 2)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
+    <div class="product-image" style="background-image: url('images/baya_personnalisé1.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Sur Mesure</div>
+        <div class="product-name">Baya Personnalisé 2</div>
+        <div class="product-description">Création unique de Baya</div>
+        <div class="product-footer">
+            <div class="product-price">7€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 3)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
+    <div class="product-image" style="background-image: url('images/baya_personnalisé2.jpg');"></div>
+    <div class="product-info">
+        <div class="product-category">Sur Mesure</div>
+        <div class="product-name">Baya Personnalisé 3</div>
+        <div class="product-description">Création unique de Baya</div>
+        <div class="product-footer">
+            <div class="product-price">7€</div>
+            <button class="view-details">Voir détails</button>
+        </div>
+    </div>
+</div>
+
+                <div class="product-card loading" onclick="openModal('Collection Sacoches', 'Ensemble de sacoches design aux lignes épurées. Gamme complète de tailles pour s\'adapter à chaque moment de votre journée avec élégance et praticité.', '8€', 'Maroquinerie')">
+                    <div class="product-image" style="background-image: url('images/collection_sacoches.jpg');"></div>
+                    <div class="product-info">
+                        <div class="product-category">Maroquinerie</div>
+                        <div class="product-name">Collection Sacoches</div>
+                        <div class="product-description">Design épuré, gamme complète de tailles</div>
+                        <div class="product-footer">
+                            <div class="product-price">Unite 8€</div>
+                            <button class="view-details">Voir détails</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="apropos">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>L'Artisane</h2>
+                    <p>Je suis <span class="about-highlight">Aida Victoria Guene</span>, créatrice passionnée et fondatrice d'AVG HOUSE. Mon univers se nourrit de l'excellence artisanale française et de l'innovation contemporaine.</p>
+                    <p>Depuis plus de 5 ans, je développe des créations uniques qui transcendent les tendances éphémères. Chaque pièce AVG HOUSE naît d'une quête d'authenticité et d'un savoir-faire transmis de génération en génération.</p>
+                    <p>Ma philosophie ? Créer des objets d'exception qui racontent votre histoire, révèlent votre personnalité et vous accompagnent dans tous les moments précieux de votre vie.</p>
+                </div>
+                <div class="about-image" style="background-image: url('images/aida_portrait.jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Parlons de Vos Projets</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <strong>Correspondance</strong>
+                            aidaguene05@gmail.com<br>
+                            <small>Réponse sous 24h</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <strong>Conseil Personnalisé</strong>
+                            +33 7 66 72 13 25<br>
+                            <small>Lun-Sam 9h-18h</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <strong>Atelier-Boutique</strong>
+                            27 place Bobillot<br>
+                            94220 Charenton-le-Pont, France<br>
+                            <small>Sur rendez-vous uniquement</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🚚</div>
+                        <div class="contact-details">
+                            <strong>Livraison Premium</strong>
+                            France: 2-4 jours ouvrés<br>
+                            International: 5-8 jours ouvrés<br>
+                            <small>Emballage soigné inclus</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💳</div>
+                        <div class="contact-details">
+                            <strong>Paiement Sécurisé</strong>
+                            Virement • PayPal • Wave<br>
+                            <small>Paiement en 3x possible</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="sujet">Sujet de votre demande</label>
+                        <input type="text" id="sujet" name="sujet" required placeholder="Commande personnalisée, renseignement...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Décrivez-nous votre projet ou votre demande..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+    <a href="https://www.instagram.com/avgfashionhouse?igsh=NDU0NnM4MjNoODcz&utm_source=qr" target="_blank" aria-label="Instagram de AVG HOUSE">
+        <i class="fab fa-instagram"></i>
+    </a>
+    
+    <a href="https://www.tiktok.com/@avgfashionhouse?_t=ZN-90rGPn7XcOI&_r=1" target="_blank" aria-label="TikTok de AVG HOUSE">
+        <i class="fab fa-tiktok"></i>   
+    </a>
+    
+    <a href="https://snapchat.com/t/SRmSSDER" target="_blank" aria-label="Snapchat de AVG HOUSE">
+        <i class="fab fa-snapchat-ghost"></i>
+    </a>
+
+</div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">AVG HOUSE</div>
+                <div class="footer-text">
+                    <p>&copy; 2025 AVG HOUSE - Aida Victoria Guene. Tous droits réservés.</p>
+                </div>
+                <ul class="footer-nav">
+                    <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <div id="modalCategory"></div>
+            <p id="modalDescription"></p>
+            <p id="modalPrice"></p>
+            <button class="cta-button" onclick="contactForProduct()">Commander ce Produit</button>
+        </div>
+    </div>
+
+    <script>
+        function updateProgressBar() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        }
+
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.loading');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        function openModal(title, description, price, category) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalCategory').textContent = category;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalPrice').textContent = price;
+            document.getElementById('productModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function contactForProduct() {
+            const productName = document.getElementById('modalTitle').textContent;
+            const category = document.getElementById('modalCategory').textContent;
+            const price = document.getElementById('modalPrice').textContent;
+            
+            const subject = `Commande ${category}: ${productName}`;
+            const message = `Bonjour Aida,\n\nJe suis intéressé(e) par le produit suivant:\n\n• Produit: ${productName}\n• Catégorie: ${category}\n• Prix: ${price}\n\nPourriez-vous me donner plus d'informations ?\n\nCordialement,`;
+            
+            document.getElementById('sujet').value = subject;
+            document.getElementById('message').value = message;
+            
+            closeModal();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('nom').focus();
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('✨ Merci pour votre message ! Aida vous répondra personnellement dans les plus brefs délais.');
+                event.target.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            handleHeaderScroll();
+        });
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- CODE POUR LE MENU HAMBURGER (à inclure dans toutes les pages) ---
+            const menuToggle = document.getElementById('menuToggle');
+            const navBar = document.getElementById('navbarNav');
+
+            if (menuToggle && navBar) {
+                menuToggle.addEventListener('click', function() {
+                    navBar.classList.toggle('open');
+                    this.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+
+                // Ferme le menu après avoir cliqué sur un lien (très important sur mobile)
+                navBar.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navBar.classList.contains('open')) {
+                            navBar.classList.remove('open');
+                            menuToggle.classList.remove('active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+            // --- FIN DU CODE MENU HAMBURGER ---
+
+            // --- EXÉCUTION DES FONCTIONS SPÉCIFIQUES À index.html ---
+            animateOnScroll();
+            updateProgressBar();
+            
+            const cards = document.querySelectorAll('.product-card.loading');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.1) + 's';
+            });
+        });
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+    <a href="https://wa.me/33766721325" class="whatsapp-float" target="_blank" aria-label="Contacter AVG HOUSE par WhatsApp">
+    <i class="fa fa-whatsapp"></i>
+</a>
+</body>
+</html>

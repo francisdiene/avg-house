@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - AVG HOUSE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* ... (CONSERVEZ TOUTES VOS VARIABLES CSS DE index.html) ... */
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --accent-secondary: #b8860b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --background-light: #fafafa;
+            --background-white: #ffffff;
+            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 40px rgba(0,0,0,0.12);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-light);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Menu mobile (Doit être identique à index.html) */
+        .hamburger-menu {
+            display: none; 
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .hamburger-menu .bar {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+            transform-origin: 1px;
+        }
+
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* --- STYLES SPÉCIFIQUES À LA PAGE LÉGALE --- */
+        .legal-section {
+            padding: 10rem 0 6rem; /* Ajout d'un padding en haut pour le header fixe */
+            min-height: 80vh;
+        }
+        
+        .legal-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .legal-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .legal-section p, .legal-section ul, .legal-section li {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .legal-section ul {
+            padding-left: 2rem;
+            list-style: disc;
+        }
+
+        .legal-section strong {
+            color: var(--text-primary);
+        }
+        
+        /* Footer (Doit être identique à index.html) */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background: var(--background-white);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%); 
+                transition: transform 0.4s ease-in-out;
+                gap: 2rem;
+                padding-top: 5rem;
+            }
+
+            .nav-links.open {
+                transform: translateX(0); 
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                order: 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html#accueil" class="logo">AVG HOUSE</a>
+            <ul class="nav-links" id="navbarNav">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#produits">Collection</a></li>
+                <li><a href="index.html#apropos">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                <li><a href="cgv.html">CGV</a></li>
+            </ul>
+            <button class="hamburger-menu" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="legal-section">
+        <div class="container">
+            <h1>Mentions Légales</h1>
+            
+            <h2>1. Identification de l'entreprise</h2>
+            <p><strong>Raison Sociale :</strong> AVG HOUSE - Aida Victoria Guene</p>
+            <p><strong>Statut :</strong> Auto-entreprise</p>
+            <p><strong>Adresse du siège social :</strong> 27 place Bobillot, 94220 Charenton-le-Pont, France</p>
+            <p><strong>Téléphone :</strong> +33 7 66 72 13 25</p>
+            <p><strong>E-mail :</strong> aidaguene05@gmail.com</p>
+            
+            <h2>2. Hébergement du site</h2>
+            <p>Le site est hébergé par GitHub.</p>
+            <p><strong>Raison Sociale de l'Hébergeur :</strong> GitHub</p>
+            <p><strong>Adresse de l'Hébergeur :</strong> https://github.com/francisdiene</p>
+            
+
+            <h2>3. Propriété intellectuelle</h2>
+            <p>Le contenu du site (textes, images, logos, design) est la propriété exclusive de AVG HOUSE et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle. Toute reproduction, distribution ou utilisation sans autorisation expresse est strictement interdite.</p>
+            
+            <h2>4. Données personnelles</h2>
+            <p>Les informations collectées via le formulaire de contact sont destinées à la gestion des demandes clients. Elles ne sont en aucun cas cédées à des tiers. Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression des données vous concernant en contactant l'entreprise par e-mail.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">AVG HOUSE</div>
+                <div class="footer-text">
+                    <p>&copy; 2025 AVG HOUSE - Aida Victoria Guene. Tous droits réservés.</p>
+                </div>
+                <ul class="footer-nav">
+                    <li><a href="mentions-legales.html">Mentions Légales</a></li>
+                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- COPIE INTÉGRALE DU JAVASCRIPT DE index.html, car il contient la fonction de menu. ---
+        function updateProgressBar() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        }
+
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            handleHeaderScroll();
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- CODE POUR LE MENU HAMBURGER (indispensable) ---
+            const menuToggle = document.getElementById('menuToggle');
+            const navBar = document.getElementById('navbarNav');
+
+            if (menuToggle && navBar) {
+                menuToggle.addEventListener('click', function() {
+                    navBar.classList.toggle('open');
+                    this.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+                
+                // Ferme le menu après avoir cliqué sur un lien (utile si des liens d'ancrage sont ajoutés)
+                navBar.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navBar.classList.contains('open')) {
+                            navBar.classList.remove('open');
+                            menuToggle.classList.remove('active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+            // --- FIN DU CODE MENU HAMBURGER ---
+            
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html> 
