@@ -159,16 +159,26 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: var(--gradient-primary);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Propriétés pour le positionnement et l'alignement */
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-light); 
+    padding: 0 20px;
+    
+    /* TRÈS IMPORTANT : Permet de positionner l'overlay */
+    position: relative; 
+
+    /* NOUVELLES PROPRIÉTÉS POUR L'IMAGE DE FOND */
+    background-image: url('images/hero_background.jpg'); /* Chemin de l'image. Modifiez 'hero_background.jpg' si vous avez utilisé un autre nom */
+    background-size: cover;      /* L'image couvrira toute la zone */
+    background-position: center; /* Centrer l'image */
+    background-repeat: no-repeat; /* Empêcher la répétition */
+    background-attachment: fixed; /* (Optionnel) Ajoute un effet de parallaxe élégant */
+}
+        
 
         .hero::before {
             content: '';
@@ -213,6 +223,23 @@
             font-weight: 300;
             letter-spacing: 0.5px;
         }
+        /* AJOUT : Crée un filtre sombre semi-transparent (Overlay) au-dessus de l'image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay noir semi-transparent (40%) */
+    z-index: 1; /* Place l'overlay juste au-dessus de l'image de fond */
+}
+
+/* AJOUT : S'assure que le contenu (.hero-content, h1, subtitle) reste au-dessus de l'overlay */
+.hero > * {
+    position: relative;
+    z-index: 2; 
+}
 
         .cta-button {
             display: inline-block;
