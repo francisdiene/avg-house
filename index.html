@@ -178,6 +178,16 @@
     background-repeat: no-repeat; /* Empêcher la répétition */
     background-attachment: fixed; /* (Optionnel) Ajoute un effet de parallaxe élégant */
 }
+
+@media (max-width: 768px) {
+    .hero {
+        /* Ceci force l'image à défiler avec le contenu sur mobile. */
+        background-attachment: scroll !important; 
+        
+        /* Optionnel : Ajuster la position de l'image de fond sur mobile si nécessaire, car le comportement peut changer sans 'fixed'. */
+        /* background-position: center top !important; */
+    }
+}
         
 
         .hero::before {
