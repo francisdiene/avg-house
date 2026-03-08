@@ -1,0 +1,22 @@
+cd C:\Users\DELL\backend-ecommerce
+node src/app.js
+
+http://localhost:5000/page.html
+http://localhost:5000/admin.html
+
+Ajouter un produit
+👉 POST http://localhost:5000/api/admin/products
+
+
+Modifier un produit
+👉 PUT http://localhost:5000/api/admin/products/1
+
+
+Supprimer un produit
+👉 DELETE http://localhost:5000/api/admin/products/1
+
+
+Lister toutes les commandes
+👉 GET http://localhost:5000/api/admin/orders
+
+https://francisdiene.github.io/avg-house/

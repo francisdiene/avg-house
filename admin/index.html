@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AVG HOUSE — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --or: #d4af37;
+      --or-dark: #b8860b;
+      --noir: #0e0e0e;
+      --blanc: #fafafa;
+      --gris: #6b6b6b;
+      --rouge: #c0392b;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--noir);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Jost', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Fond décoratif */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(212,175,55,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: 'AVG';
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28vw;
+      font-weight: 300;
+      color: rgba(255,255,255,0.015);
+      letter-spacing: -0.05em;
+      user-select: none;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .login-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      padding: 56px 48px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.2);
+      backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--blanc);
+      letter-spacing: 0.15em;
+    }
+
+    .logo-sub {
+      font-size: 0.65rem;
+      color: var(--or);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--or);
+      margin: 20px auto 0;
+      opacity: 0.6;
+    }
+
+    .field {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--blanc);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    input:focus {
+      border-color: var(--or);
+      background: rgba(212,175,55,0.05);
+    }
+
+    input::placeholder { color: rgba(255,255,255,0.2); }
+
+    .btn-login {
+      width: 100%;
+      padding: 16px;
+      background: var(--or);
+      color: var(--noir);
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.15s;
+      margin-top: 8px;
+    }
+
+    .btn-login:hover { background: var(--or-dark); }
+    .btn-login:active { transform: scale(0.98); }
+    .btn-login:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .error-msg {
+      display: none;
+      background: rgba(192,57,43,0.15);
+      border: 1px solid rgba(192,57,43,0.4);
+      color: #e74c3c;
+      font-size: 0.8rem;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .error-msg.show { display: block; }
+
+    .loader {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: var(--noir);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--or); }
+  </style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="logo">
+    <div class="logo-title">AVG HOUSE</div>
+    <div class="logo-sub">Espace Administration</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="error-msg" id="errorMsg">Email ou mot de passe incorrect.</div>
+
+  <div class="field">
+    <label for="email">Adresse e-mail</label>
+    <input type="email" id="email" placeholder="votre@email.com" autocomplete="email"/>
+  </div>
+
+  <div class="field">
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" placeholder="••••••••" autocomplete="current-password"/>
+  </div>
+
+  <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+    <span id="btnText">Accéder au Dashboard</span>
+    <div class="loader" id="loader"></div>
+  </button>
+
+  <a href="../index.html" class="back-link">← Retour au site</a>
+</div>
+
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://ugldfbyfeurbfkezindw.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_Vzudu-u21GebJdMADttzIw_8F7YeDZK';
+  const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Rediriger si déjà connecté
+  (async () => {
+    const { data: { session } } = await db.auth.getSession();
+    if (session) window.location.href = 'dashboard.html';
+  })();
+
+  async function handleLogin() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('btnLogin');
+    const btnText = document.getElementById('btnText');
+    const loader = document.getElementById('loader');
+    const errorMsg = document.getElementById('errorMsg');
+
+    errorMsg.classList.remove('show');
+
+    if (!email || !password) {
+      errorMsg.textContent = 'Veuillez remplir tous les champs.';
+      errorMsg.classList.add('show');
+      return;
+    }
+
+    // État chargement
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    loader.style.display = 'block';
+
+    const { error } = await db.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      errorMsg.textContent = 'Email ou mot de passe incorrect.';
+      errorMsg.classList.add('show');
+      btn.disabled = false;
+      btnText.style.display = 'block';
+      loader.style.display = 'none';
+    } else {
+      window.location.href = 'dashboard.html';
+    }
+  }
+
+  // Login avec touche Entrée
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleLogin();
+  });
+</script>
+</body>
+</html>
