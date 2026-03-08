@@ -881,13 +881,22 @@
   const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // ── AUTH ─────────────────────────────────────────────────────
-  (async () => {
-    const { data: { session } } = await db.auth.getSession();
-    if (!session) { window.location.href = 'index.html'; return; }
-    document.getElementById('adminEmail').textContent = session.user.email;
-    if(document.getElementById('mobileAdminEmail')) document.getElementById('mobileAdminEmail').textContent = session.user.email;
-    initDashboard();
-  })();
+  let dashboardInitialized = false;
+
+  db.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
+      window.location.href = 'index.html';
+      return;
+    }
+    if (session && !dashboardInitialized) {
+      dashboardInitialized = true;
+      document.getElementById('adminEmail').textContent = session.user.email;
+      if (document.getElementById('mobileAdminEmail')) {
+        document.getElementById('mobileAdminEmail').textContent = session.user.email;
+      }
+      initDashboard();
+    }
+  });
 
   // ── MENU MOBILE ──────────────────────────────────────────────
   function toggleMobileMenu() {
