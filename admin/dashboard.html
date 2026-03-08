@@ -852,8 +852,27 @@
         <textarea id="produitDesc" placeholder="Description du produit..."></textarea>
       </div>
       <div class="form-field">
-        <label>URL de l'image</label>
-        <input type="text" id="produitImage" placeholder="https://..."/>
+        <label>Photo du produit</label>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+          <label style="
+            display:inline-flex;align-items:center;gap:8px;
+            padding:10px 16px;
+            background:rgba(212,175,55,0.1);
+            border:1px solid rgba(212,175,55,0.3);
+            color:var(--or);
+            font-size:0.7rem;letter-spacing:0.1em;
+            cursor:pointer;text-transform:uppercase;
+            transition:all 0.2s;
+          " onmouseover="this.style.background='rgba(212,175,55,0.2)'" onmouseout="this.style.background='rgba(212,175,55,0.1)'">
+            📷 Choisir une photo
+            <input type="file" id="produitImageFile" accept="image/*" style="display:none" onchange="previewImage(this)"/>
+          </label>
+          <span style="font-size:0.72rem;color:var(--gris)" id="imageFileName">Aucune photo sélectionnée</span>
+        </div>
+        <div id="imagePreview" style="display:none;margin-bottom:8px;">
+          <img id="previewImg" style="width:80px;height:80px;object-fit:cover;border:1px solid var(--border)"/>
+        </div>
+        <input type="text" id="produitImage" placeholder="Ou coller une URL https://..." style="font-size:0.8rem"/>
       </div>
       <div class="form-field">
         <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
@@ -1017,6 +1036,9 @@
     document.getElementById('produitDesc').value = '';
     document.getElementById('produitImage').value = '';
     document.getElementById('produitActif').checked = true;
+    document.getElementById('produitImageFile').value = '';
+    document.getElementById('imageFileName').textContent = 'Aucune photo sélectionnée';
+    document.getElementById('imagePreview').style.display = 'none';
     document.getElementById('modalTitle').textContent = 'Nouveau produit';
     document.getElementById('modalProduit').classList.add('show');
   }
@@ -1038,21 +1060,65 @@
     document.getElementById('modalProduit').classList.remove('show');
   }
 
+  function previewImage(input) {
+    const file = input.files[0];
+    if (!file) return;
+    document.getElementById('imageFileName').textContent = file.name;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      document.getElementById('previewImg').src = e.target.result;
+      document.getElementById('imagePreview').style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  async function uploadImage(file) {
+    const ext = file.name.split('.').pop();
+    const fileName = `produits/${Date.now()}.${ext}`;
+    const { data, error } = await db.storage
+      .from('avg-house-images')
+      .upload(fileName, file, { upsert: true });
+    if (error) { console.error('Upload error:', error); return null; }
+    const { data: urlData } = db.storage.from('avg-house-images').getPublicUrl(fileName);
+    return urlData.publicUrl;
+  }
+
   async function saveProduit() {
     const id = document.getElementById('produitId').value;
+    const fileInput = document.getElementById('produitImageFile');
+    const file = fileInput.files[0];
+
+    if (!document.getElementById('produitNom').value.trim() ||
+        !document.getElementById('produitPrix').value ||
+        !document.getElementById('produitCategorie').value) {
+      showToast('Veuillez remplir les champs obligatoires.'); return;
+    }
+
+    // Bouton en état chargement
+    const saveBtn = document.querySelector('.modal-footer .btn-primary');
+    saveBtn.textContent = 'Enregistrement...';
+    saveBtn.disabled = true;
+
+    // Upload image si fichier sélectionné
+    let imageUrl = document.getElementById('produitImage').value.trim();
+    if (file) {
+      showToast('Upload de la photo...');
+      const uploadedUrl = await uploadImage(file);
+      if (uploadedUrl) imageUrl = uploadedUrl;
+    }
+
     const payload = {
       nom: document.getElementById('produitNom').value.trim(),
       prix: parseFloat(document.getElementById('produitPrix').value),
       categorie: document.getElementById('produitCategorie').value,
       stock: parseInt(document.getElementById('produitStock').value) || 0,
       description: document.getElementById('produitDesc').value.trim(),
-      image_url: document.getElementById('produitImage').value.trim(),
+      image_url: imageUrl,
       actif: document.getElementById('produitActif').checked,
     };
 
-    if (!payload.nom || !payload.prix || !payload.categorie) {
-      showToast('Veuillez remplir les champs obligatoires.'); return;
-    }
+    saveBtn.textContent = 'Enregistrer';
+    saveBtn.disabled = false;
 
     if (id) {
       await db.from('produits').update(payload).eq('id', id);

@@ -1,1609 +1,2069 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AVG HOUSE - Aida Victoria Guene. Maroquinerie artisanale de luxe et cosmétiques naturels. Créations uniques faites main en France.">
-    <meta name="keywords" content="maroquinerie, sacs à main, cosmétiques, artisanal, luxe, France, AVG HOUSE">
-    <meta name="author" content="Aida Victoria Guene">
-    <title>AVG HOUSE - Aida Victoria Guene | Maroquinerie & Cosmétiques Artisanaux</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --accent-color: #d4af37;
-            --accent-secondary: #b8860b;
-            --text-primary: #1a1a1a;
-            --text-secondary: #6b6b6b;
-            --background-light: #fafafa;
-            --background-white: #ffffff;
-            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-medium: 0 8px 40px rgba(0,0,0,0.12);
-            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-        }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AVG HOUSE - Aida Victoria Guene. Maroquinerie artisanale et cosmétiques naturels. Créations uniques faites main."/>
+  <meta name="keywords" content="maroquinerie, sacs à main, cosmétiques, artisanal, luxe, France, AVG HOUSE"/>
+  <title>AVG HOUSE — Aida Victoria Guene</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background-white);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .header-scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-light);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: -0.01em;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* NOUVEAU CSS pour le menu mobile */
-        .hamburger-menu {
-            display: none; /* Caché par défaut sur grand écran */
-            flex-direction: column;
-            justify-content: space-around;
-            width: 24px;
-            height: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 10;
-        }
-
-        .hamburger-menu .bar {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 1px;
-            transition: all 0.3s ease;
-            transform-origin: 1px;
-        }
-
-        /* Animation de transformation en 'X' */
-        .hamburger-menu.active .bar:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger-menu.active .bar:nth-child(2) {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        .hamburger-menu.active .bar:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        /* FIN NOUVEAU CSS */
-
-        /* Hero Section */
-        .hero {
-    /* Propriétés pour le positionnement et l'alignement */
-    height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--color-light); 
-    padding: 0 20px;
-    
-    /* TRÈS IMPORTANT : Permet de positionner l'overlay */
-    position: relative; 
-
-    /* NOUVELLES PROPRIÉTÉS POUR L'IMAGE DE FOND */
-    background-image: url('images/hero_background.jpg'); /* Chemin de l'image. Modifiez 'hero_background.jpg' si vous avez utilisé un autre nom */
-    background-size: cover;      /* L'image couvrira toute la zone */
-    background-position: center 32%; /* Centrer l'image */
-    background-repeat: no-repeat; /* Empêcher la répétition */
-    background-attachment: fixed; /* (Optionnel) Ajoute un effet de parallaxe élégant */
-}
-
-@media (max-width: 768px) {
-    .hero {
-        /* Ceci force l'image à défiler avec le contenu sur mobile. */
-        background-attachment: scroll !important; 
-        
-        /* Optionnel : Ajuster la position de l'image de fond sur mobile si nécessaire, car le comportement peut changer sans 'fixed'. */
-        /* background-position: center top !important; */
+  <style>
+    /* ─────────────────────────────────────────────
+       VARIABLES & RESET
+    ───────────────────────────────────────────── */
+    :root {
+      --or: #c9a84c;
+      --or-light: #e8d5a0;
+      --or-dark: #a07830;
+      --creme: #faf7f2;
+      --blanc: #ffffff;
+      --noir: #0f0f0f;
+      --gris: #7a7a7a;
+      --gris-light: #e8e4de;
+      --texte: #2a2520;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Tenor Sans', sans-serif;
+      --body: 'Jost', sans-serif;
     }
-}
-        
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            color: #C39F45;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            font-weight: 300;
-            color: white;
-            letter-spacing: 0.5px;
-        }
-        /* AJOUT : Crée un filtre sombre semi-transparent (Overlay) au-dessus de l'image */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Overlay noir semi-transparent (40%) */
-    z-index: 1; /* Place l'overlay juste au-dessus de l'image de fond */
-}
-
-/* AJOUT : S'assure que le contenu (.hero-content, h1, subtitle) reste au-dessus de l'overlay */
-.hero > * {
-    position: relative;
-    z-index: 2; 
-}
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--gradient-gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Products Section */
-        .products {
-            padding: 8rem 0;
-            background: var(--background-light);
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 5rem;
-            font-weight: 300;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--background-white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .product-image {
-            height: 320px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-card:hover .product-image::before {
-            opacity: 1;
-        }
-
-        .product-info {
-            padding: 2rem;
-        }
-
-        .product-category {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .product-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .view-details {
-            background: none;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .view-details:hover {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        /* About Section */
-        .about {
-            padding: 8rem 0;
-            background: var(--background-white);
-            position: relative;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.8rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .about-highlight {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            background: var(--gradient-primary);
-            background-size: cover;
-            background-position: center;
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 0;
-            background: var(--background-light);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .contact-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 3rem;
-            letter-spacing: -0.02em;
-        }
-
-        .contact-item {
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--background-white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-gold);
-            color: white;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details strong {
-            color: var(--text-primary);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-details {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .contact-form {
-            background: var(--background-white);
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid #e8e8e8;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background: var(--background-light);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            background: var(--background-white);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gradient-gold);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 3rem 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-
-        .footer-text {
-            text-align: center;
-            flex: 1;
-        }
-        
-        /* Footer Navigation for other pages */
-        .footer-nav {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-nav a:hover {
-            opacity: 1;
-            color: var(--accent-color);
-        }
-
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--background-white);
-            padding: 3rem;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            box-shadow: var(--shadow-heavy);
-            animation: slideIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-            to { 
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        .close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: var(--accent-color);
-        }
-
-        #modalTitle {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        #modalCategory {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        #modalDescription {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        #modalPrice {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--gradient-gold);
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-            
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .footer-nav {
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Afficher le bouton hamburger */
-            .hamburger-menu {
-                display: flex;
-            }
-            
-            /* Cacher la navigation par défaut */
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 70%;
-                background: var(--background-white);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.15);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateX(100%); /* Masqué hors écran */
-                transition: transform 0.4s ease-in-out;
-                gap: 2rem;
-                padding-top: 5rem;
-            }
-
-            /* Afficher la navigation quand la classe 'open' est présente */
-            .nav-links.open {
-                transform: translateX(0); /* Déplacé à l'écran */
-            }
-            
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .contact-form {
-                padding: 2rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-nav {
-                order: 3; /* Placer la navigation à la fin */
-            }
-        }
-
-        .loading {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-
-.social-links {
-    display: flex; /* Utilisation de Flexbox pour aligner les icônes */
-    justify-content: center; /* Centrer les icônes horizontalement */
-    gap: 20px; /* Espace entre les icônes */
-    margin-bottom: 25px; /* Espace au-dessus des droits d'auteur */
-}
-
-.social-links a {
-    color: var(--color-light); /* Couleur claire pour l'icône (blanc/gris clair) */
-    font-size: 24px; /* Taille de l'icône */
-    transition: color 0.3s ease; /* Transition douce pour l'effet de survol */
-}
-
-.social-links a:hover {
-    color: var(--color-primary); /* Couleur jaune/or au survol, cohérente avec votre thème */
-}
-.whatsapp-float {
-    /* Positionnement fixe en bas à droite */
-    position: fixed;
-    bottom: 30px; /* 30px du bas */
-    right: 30px; /* 30px de la droite */
-    
-    /* Taille et style du cercle */
-    width: 60px;
-    height: 60px;
-    background-color: #25D366; /* Vert officiel de WhatsApp */
-    color: white;
-    border-radius: 50%; /* Rendre le bouton circulaire */
-    text-align: center;
-    line-height: 60px; /* Centrer l'icône verticalement */
-    font-size: 30px; /* Taille de l'icône WhatsApp */
-    z-index: 999; /* Assurer qu'il est au-dessus de tout le contenu */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Légère ombre */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #128C7E; /* Assombrir légèrement au survol */
-    transform: scale(1.05); /* Petit effet de zoom */
-}
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40JuKakV9e8O9T1/yYwS/3A9a25E8d0e5Ea4t5O0K5e0T0B9e3c5Wf5f8R4q5Z1/gG4g0p0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--blanc);
+      color: var(--texte);
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────────
+       PROGRESS BAR
+    ───────────────────────────────────────────── */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--or), var(--or-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ─────────────────────────────────────────────
+       HEADER
+    ───────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 48px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(250, 247, 242, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gris-light);
+      height: 66px;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--blanc);
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+
+    header.scrolled .logo { color: var(--texte); }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav ul a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    header.scrolled nav ul a { color: var(--gris); }
+    nav ul a:hover { color: var(--or) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--blanc);
+      transition: all 0.3s;
+    }
+
+    header.scrolled .hamburger span { background: var(--texte); }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+    /* Menu mobile */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 75%;
+      max-width: 320px;
+      background: var(--creme);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .mobile-nav.open { transform: translateX(0); }
+
+    .mobile-nav a {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--texte);
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gris-light);
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover { color: var(--or); }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+    }
+
+    .mobile-overlay.show { display: block; }
+
+    /* ─────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--noir);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero_background.jpg');
+      background-size: cover;
+      background-position: center 32%;
+      opacity: 0.6;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.12); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15,15,15,0.2) 0%,
+        rgba(15,15,15,0.45) 60%,
+        rgba(15,15,15,0.7) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 0 24px;
+      animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--or-light);
+      margin-bottom: 24px;
+      animation: fadeUp 1.4s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--blanc);
+      line-height: 1;
+      margin-bottom: 20px;
+      animation: fadeUp 1.4s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-line {
+      width: 60px;
+      height: 1px;
+      background: var(--or);
+      margin: 0 auto 20px;
+      animation: fadeUp 1.4s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      margin-bottom: 48px;
+      animation: fadeUp 1.4s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 44px;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--blanc);
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      animation: fadeUp 1.4s 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-cta:hover {
+      background: var(--or);
+      border-color: var(--or);
+      color: var(--blanc);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      animation: fadeUp 1.4s 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.4; }
+      50%       { transform: scaleY(0.5); opacity: 0.1; }
+    }
+
+    /* ─────────────────────────────────────────────
+       MARQUEE STRIP
+    ───────────────────────────────────────────── */
+    .marquee-strip {
+      background: var(--texte);
+      padding: 14px 0;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-track span {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      padding: 0 32px;
+    }
+
+    .marquee-track span.accent { color: var(--or); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─────────────────────────────────────────────
+       COLLECTION SECTION
+    ───────────────────────────────────────────── */
+    .collection {
+      padding: 100px 48px;
+      background: var(--creme);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--texte);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .section-line {
+      width: 40px;
+      height: 1px;
+      background: var(--or);
+      margin: 0 auto 20px;
+    }
+
+    .section-sub {
+      color: var(--gris);
+      font-size: 0.9rem;
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── FILTRES ── */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .filter-btn {
+      padding: 9px 24px;
+      background: transparent;
+      border: 1px solid var(--gris-light);
+      color: var(--gris);
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--or);
+      color: var(--or);
+    }
+
+    .filter-btn.active {
+      background: var(--texte);
+      border-color: var(--texte);
+      color: var(--blanc);
+    }
+
+    /* ── GRILLE PRODUITS ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: var(--blanc);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    .product-card.fade-out {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+
+    .product-img-wrap {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+      background: var(--gris-light);
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .product-img-wrap .placeholder-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: rgba(0,0,0,0.1);
+      letter-spacing: 0.1em;
+    }
+
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,15,15,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.4s ease;
+    }
+
+    .product-card:hover .product-overlay { background: rgba(15,15,15,0.35); }
+
+    .overlay-btn {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blanc);
+      border: 1px solid rgba(255,255,255,0.7);
+      padding: 10px 24px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover .overlay-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-info {
+      padding: 20px 20px 24px;
+      border-top: 1px solid var(--gris-light);
+    }
+
+    .product-cat {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--texte);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.75rem;
+      color: var(--gris);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .product-price {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--or-dark);
+    }
+
+    /* Skeleton loader */
+    .skeleton-card {
+      background: var(--blanc);
+    }
+
+    .skeleton-img {
+      aspect-ratio: 3/4;
+      background: linear-gradient(90deg, #f0ede8 25%, #e8e4de 50%, #f0ede8 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton-info {
+      padding: 20px;
+    }
+
+    .skeleton-line {
+      height: 10px;
+      background: linear-gradient(90deg, #f0ede8 25%, #e8e4de 50%, #f0ede8 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      margin-bottom: 10px;
+      border-radius: 2px;
+    }
+
+    .skeleton-line.short { width: 50%; }
+    .skeleton-line.medium { width: 75%; }
+
+    @keyframes shimmer {
+      from { background-position: 200% 0; }
+      to   { background-position: -200% 0; }
+    }
+
+    /* Compteur produits */
+    .products-count {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 32px;
+    }
+
+    .products-count span { color: var(--texte); font-weight: 500; }
+
+    /* Empty state */
+    .empty-products {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--gris);
+    }
+
+    .empty-products p {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    /* ─────────────────────────────────────────────
+       À PROPOS
+    ───────────────────────────────────────────── */
+    .about {
+      padding: 120px 48px;
+      background: var(--blanc);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-deco {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 50%;
+      aspect-ratio: 1;
+      border: 20px solid var(--creme);
+      z-index: -1;
+    }
+
+    .about-tag {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 20px;
+    }
+
+    .about-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--texte);
+      margin-bottom: 32px;
+    }
+
+    .about-title em { font-style: italic; color: var(--or-dark); }
+
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--gris);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gris-light);
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--or-dark);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gris);
+    }
+
+    /* ─────────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────────── */
+    .contact-section {
+      padding: 100px 48px;
+      background: var(--creme);
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      color: var(--texte);
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--gris-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--texte);
+      margin-bottom: 4px;
+    }
+
+    .contact-details span, .contact-details a {
+      font-size: 0.85rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    .contact-details a:hover { color: var(--or); }
+
+    /* Formulaire */
+    .contact-form {
+      background: var(--blanc);
+      padding: 48px;
+    }
+
+    .form-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--texte);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 0;
+      border: none;
+      border-bottom: 1px solid var(--gris-light);
+      background: transparent;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--texte);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-bottom-color: var(--or); }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--texte);
+      color: var(--blanc);
+      border: none;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover { background: var(--or-dark); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: rgba(39,174,96,0.08);
+      border: 1px solid rgba(39,174,96,0.2);
+      color: #27ae60;
+      font-size: 0.85rem;
+      margin-top: 16px;
+    }
+
+    /* ─────────────────────────────────────────────
+       NEWSLETTER
+    ───────────────────────────────────────────── */
+    .newsletter {
+      background: var(--texte);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .newsletter-tag {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+
+    .newsletter h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--blanc);
+      margin-bottom: 12px;
+    }
+
+    .newsletter p {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-right: none;
+      color: var(--blanc);
+      font-family: var(--body);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+
+    .newsletter-form button {
+      padding: 14px 28px;
+      background: var(--or);
+      color: var(--blanc);
+      border: none;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .newsletter-form button:hover { background: var(--or-dark); }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: var(--noir);
+      padding: 60px 48px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand .logo-footer {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: var(--blanc);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+      max-width: 220px;
+      line-height: 1.7;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .footer-socials a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .footer-socials a:hover {
+      border-color: var(--or);
+      color: var(--or);
+    }
+
+    .footer-nav-group h4 {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    .footer-nav-group ul {
+      list-style: none;
+    }
+
+    .footer-nav-group ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav-group ul a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+
+    .footer-nav-group ul a:hover { color: var(--or); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ─────────────────────────────────────────────
+       MODAL PRODUIT
+    ───────────────────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show { display: flex; }
+
+    .modal-box {
+      background: var(--blanc);
+      max-width: 680px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-height: 90vh;
+      overflow: hidden;
+    }
+
+    .modal-img {
+      background: var(--gris-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-img .placeholder-img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: rgba(0,0,0,0.1);
+    }
+
+    .modal-body {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--texte);
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover { background: var(--blanc); }
+
+    .modal-cat {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--texte);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .modal-desc {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 28px;
+      flex: 1;
+    }
+
+    .modal-price {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--or-dark);
+      margin-bottom: 24px;
+    }
+
+    .modal-cta {
+      width: 100%;
+      padding: 15px;
+      background: var(--texte);
+      color: var(--blanc);
+      border: none;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .modal-cta:hover { background: var(--or-dark); }
+
+    /* ─────────────────────────────────────────────
+       WHATSAPP
+    ───────────────────────────────────────────── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      z-index: 900;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #20b858;
+    }
+
+    /* ─────────────────────────────────────────────
+       REVEAL ANIMATION
+    ───────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 1200px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 0 24px; }
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: flex; }
+
+      .collection { padding: 80px 24px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 80px 24px;
+      }
+
+      .about-img-deco { display: none; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-section { padding: 80px 24px; }
+      .contact-form { padding: 32px 24px; }
+
+      .footer-top { flex-direction: column; gap: 40px; }
+      footer { padding: 48px 24px 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+      .newsletter { padding: 60px 24px; }
+
+      .modal-box { grid-template-columns: 1fr; }
+      .modal-img { display: none; }
+      .modal-body { padding: 32px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; }
+    }
+
+    /* ─────────────────────────────────────────────
+       MODAL COMMANDE
+    ───────────────────────────────────────────── */
+    .order-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .order-overlay.show { display: flex; }
+
+    .order-box {
+      background: var(--blanc);
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .order-head {
+      padding: 28px 28px 0;
+      border-bottom: 1px solid var(--gris-light);
+      padding-bottom: 20px;
+    }
+
+    .order-product-recap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .order-product-img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      background: var(--gris-light);
+      flex-shrink: 0;
+    }
+
+    .order-product-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--texte);
+      margin-bottom: 2px;
+    }
+
+    .order-product-price {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--or-dark);
+    }
+
+    .order-title {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gris);
+    }
+
+    .order-body { padding: 24px 28px; }
+
+    .order-field {
+      margin-bottom: 18px;
+    }
+
+    .order-field label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 8px;
+    }
+
+    .order-field input,
+    .order-field select,
+    .order-field textarea {
+      width: 100%;
+      padding: 12px 0;
+      border: none;
+      border-bottom: 1px solid var(--gris-light);
+      background: transparent;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--texte);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .order-field input:focus,
+    .order-field select:focus,
+    .order-field textarea:focus { border-bottom-color: var(--or); }
+
+    .order-field textarea { resize: none; min-height: 70px; }
+
+    .order-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .order-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--texte);
+      color: var(--blanc);
+      border: none;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 8px;
+    }
+
+    .order-submit:hover { background: var(--or-dark); }
+    .order-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .order-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      background: var(--creme);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--texte);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .order-success {
+      display: none;
+      text-align: center;
+      padding: 48px 28px;
+    }
+
+    .order-success-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .order-success h3 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--texte);
+      margin-bottom: 10px;
+    }
+
+    .order-success p {
+      font-size: 0.85rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .order-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div class="progress-bar" id="progressBar"></div>
 
-    <header id="header">
-        <nav class="container">
-            <a href="#accueil" class="logo">AVG HOUSE</a>
-            <ul class="nav-links" id="navbarNav">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#produits">Collection</a></li>
-                <li><a href="#apropos">À Propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="mentions-legales.html">Mentions Légales</a></li>
-                <li><a href="cgv.html">CGV</a></li>
-            </ul>
-            <button class="hamburger-menu" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </nav>
-    </header>
+<div class="progress-bar" id="progressBar"></div>
 
-    <section class="hero" id="accueil">
-        <div class="hero-content loading">
-            <h1>AVG HOUSE</h1>
-            <p class="hero-subtitle">Aida Victoria Guene - L'Art de la Maroquinerie & Cosmétiques d'Exception</p>
-            <a href="#produits" class="cta-button">Découvrir la Collection</a>
-        </div>
-    </section>
+<!-- ── HEADER ── -->
+<header id="header">
+  <a href="#accueil" class="logo">AVG HOUSE</a>
+  <nav>
+    <ul id="navLinks">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#produits">Collection</a></li>
+      <li><a href="#apropos">À Propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mentions-legales.html">Légal</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-    <section class="products" id="produits">
-        <div class="container">
-            <h2 class="section-title">Notre Collection</h2>
-            <p class="section-subtitle">Chaque création raconte une histoire d'élégance et de savoir-faire artisanal</p>
-            
-            <div class="product-grid">
-                <div class="product-card loading" onclick="openModal('Sac à Main Tigresse', 'Magnifique sac à main au motif tigresse, alliant élégance et modernité. Cuir de qualité supérieure avec finitions artisanales soignées. Un accessoire audacieux qui révèle votre personnalité unique.', '15€', 'Maroquinerie')">
-                    <div class="product-image" style="background-image: url('images/sac_tigresse.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Maroquinerie</div>
-                        <div class="product-name">Sac à Main Tigresse</div>
-                        <div class="product-description">Motif audacieux, cuir premium, finitions artisanales</div>
-                        <div class="product-footer">
-                            <div class="product-price">15€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
+<!-- Menu mobile -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#accueil" class="mobile-link">Accueil</a>
+  <a href="#produits" class="mobile-link">Collection</a>
+  <a href="#apropos" class="mobile-link">À Propos</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="mentions-legales.html">Mentions Légales</a>
+  <a href="cgv.html">CGV</a>
+</nav>
 
-                <div class="product-card loading" onclick="openModal('Sac à Main Beige', 'Sac à main intemporel en ton beige naturel, incarnation de l\'élégance discrète. Design sophistiqué avec compartiments multiples pour un quotidien organisé avec style.', '10€', 'Maroquinerie')">
-                    <div class="product-image" style="background-image: url('images/sac_beige.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Maroquinerie</div>
-                        <div class="product-name">Sac à Main Beige</div>
-                        <div class="product-description">Élégance intemporelle, compartiments pratiques</div>
-                        <div class="product-footer">
-                            <div class="product-price">10€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
+<!-- ── HERO ── -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>AVG HOUSE</h1>
+    <div class="hero-line"></div>
+    <a href="#produits" class="hero-cta">Découvrir la Collection</a>
+  </div>
+  <div class="hero-scroll">Défiler</div>
+</section>
 
-                <div class="product-card loading" onclick="openModal('Sac à Main Dark', 'Sac à main sophistiqué aux tons sombres, parfait pour un look contemporain et raffiné. Matériaux nobles et architecture moderne pour la femme d\'aujourd\'hui.', '9€', 'Maroquinerie')">
-                    <div class="product-image" style="background-image: url('images/sac_dark.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Maroquinerie</div>
-                        <div class="product-name">Sac à Main Dark</div>
-                        <div class="product-description">Sophistication moderne, matériaux nobles</div>
-                        <div class="product-footer">
-                            <div class="product-price">9€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card loading" onclick="openModal('Sac à Main Jean', 'Sac casual en denim premium, l\'alliance parfaite entre décontraction et style. Robuste et tendance, il s\'adapte à votre lifestyle dynamique avec originalité.', '10€', 'Maroquinerie')">
-                    <div class="product-image" style="background-image: url('images/sac_jean.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Maroquinerie</div>
-                        <div class="product-name">Sac à Main Jean</div>
-                        <div class="product-description">Style casual premium, résistance et tendance</div>
-                        <div class="product-footer">
-                            <div class="product-price">10€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card loading" onclick="openModal('Sacoche Personnalisée', 'Sacoche sur mesure, expression de votre individualité. Design unique créé selon vos désirs, fonctionnalité adaptée à vos besoins spécifiques.', '15€', 'Sur Mesure')">
-                    <div class="product-image" style="background-image: url('images/sacoche_perso.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Sur Mesure</div>
-                        <div class="product-name">Sacoche Personnalisée</div>
-                        <div class="product-description">Création unique, adaptée à vos besoins</div>
-                        <div class="product-footer">
-                            <div class="product-price">15€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card loading" onclick="openModal('Huile Essentielle 50ml', 'Huile essentielle artisanale pure et naturelle. Formulation exclusive aux vertus nourrissantes et apaisantes. L\'essence de la beauté naturelle en 50ml.', '10€', 'Cosmétiques')">
-                    <div class="product-image" style="background-image: url('images/huile_50ml.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Cosmétiques</div>
-                        <div class="product-name">Huile Essentielle 50ml</div>
-                        <div class="product-description">Pure et naturelle, formulation exclusive</div>
-                        <div class="product-footer">
-                            <div class="product-price">10€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card loading" onclick="openModal('Set Gloss & Crayon', 'Set cosmétique d\'exception comprenant gloss et crayon à lèvres. Formules innovantes longue tenue, palette de couleurs sophistiquées pour sublimer votre sourire naturel.', '3€', 'Cosmétiques')">
-                    <div class="product-image" style="background-image: url('images/gloss_crayon.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Cosmétiques</div>
-                        <div class="product-name">Set Gloss & Crayon</div>
-                        <div class="product-description">Formules longue tenue, couleurs sophistiquées</div>
-                        <div class="product-footer">
-                            <div class="product-price">3€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card loading" onclick="openModal('Essence Parfumée', 'Essence parfumée artisanale aux notes envoûtantes et complexes. Fragrance signature créée avec des ingrédients d\'exception pour une expérience olfactive unique.', '6€', 'Cosmétiques')">
-                    <div class="product-image" style="background-image: url('images/essence_parfumee.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Cosmétiques</div>
-                        <div class="product-name">Essence Parfumée</div>
-                        <div class="product-description">Notes envoûtantes, fragrance signature</div>
-                        <div class="product-footer">
-                            <div class="product-price">6€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card loading" onclick="openModal('Musc Amirah (5ml)', 'Huile de parfum Amirah pure et intense. Une essence de luxe pour une tenue longue durée.', '5€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/musk_amirah.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Musc Amirah (5ml)</div>
-        <div class="product-description">Huile de parfum concentrée 5ml</div>
-        <div class="product-footer">
-            <div class="product-price">5€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="accent">AVG HOUSE</span>
+    <span>Maroquinerie Artisanale</span>
+    <span class="accent">✦</span>
+    <span>Cosmétiques Naturels</span>
+    <span class="accent">✦</span>
+    <span>Créations Sur Mesure</span>
+    <span class="accent">✦</span>
+    <span>Fait Main en France</span>
+    <span class="accent">✦</span>
+    <span>Livraison Internationale</span>
+    <span class="accent">✦</span>
+    <span class="accent">AVG HOUSE</span>
+    <span>Maroquinerie Artisanale</span>
+    <span class="accent">✦</span>
+    <span>Cosmétiques Naturels</span>
+    <span class="accent">✦</span>
+    <span>Créations Sur Mesure</span>
+    <span class="accent">✦</span>
+    <span>Fait Main en France</span>
+    <span class="accent">✦</span>
+    <span>Livraison Internationale</span>
+    <span class="accent">✦</span>
+  </div>
 </div>
 
-<div class="product-card loading" onclick="openModal('Musc Oudelle (5ml)', 'Huile de parfum Oudelle, mélange envoûtant d\'oud et de notes orientales. Parfaite pour les amateurs de fragrances puissantes.', '5€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/musk_oudelle.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Musc Oudelle (5ml)</div>
-        <div class="product-description">Huile de parfum concentrée 5ml</div>
-        <div class="product-footer">
-            <div class="product-price">5€</div>
-            <button class="view-details">Voir détails</button>
+<!-- ── COLLECTION ── -->
+<section class="collection" id="produits">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Notre Collection</div>
+    <h2 class="section-title">Chaque pièce, une histoire</h2>
+    <div class="section-line"></div>
+    <p class="section-sub">Savoir-faire artisanal et matériaux d'exception, pour des créations qui vous ressemblent</p>
+  </div>
+
+  <!-- FILTRES -->
+  <div class="filters reveal" id="filters">
+    <button class="filter-btn active" data-cat="Tous">Tous</button>
+    <button class="filter-btn" data-cat="Maroquinerie">Maroquinerie</button>
+    <button class="filter-btn" data-cat="Cosmétiques">Cosmétiques</button>
+    <button class="filter-btn" data-cat="Accessoires">Accessoires</button>
+    <button class="filter-btn" data-cat="Sur Mesure">Sur Mesure</button>
+  </div>
+
+  <div class="products-count reveal" id="productsCount"></div>
+
+  <!-- GRILLE -->
+  <div class="product-grid" id="productGrid">
+    <!-- Skeletons -->
+    ${Array(8).fill(0).map(() => `
+      <div class="skeleton-card">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-info">
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line short"></div>
         </div>
+      </div>
+    `).join('')}
+  </div>
+</section>
+
+<!-- ── À PROPOS ── -->
+<section id="apropos">
+  <div class="about">
+    <div class="about-img-wrap reveal">
+      <img src="images/aida_portrait.jpg" alt="Aida Victoria Guene" class="about-img-main" onerror="this.style.display='none'"/>
+      <div class="about-img-deco"></div>
     </div>
+    <div class="about-text reveal">
+      <div class="about-tag">L'Artisane</div>
+      <h2 class="about-title">Aida Victoria <em>Guene</em></h2>
+      <p>Créatrice passionnée et fondatrice d'AVG HOUSE, mon univers se nourrit de l'excellence artisanale française et de l'innovation contemporaine.</p>
+      <p>Depuis plus de 5 ans, je développe des créations uniques qui transcendent les tendances éphémères. Chaque pièce AVG HOUSE naît d'une quête d'authenticité et d'un savoir-faire transmis de génération en génération.</p>
+      <p>Ma philosophie ? Créer des objets d'exception qui racontent votre histoire, révèlent votre personnalité et vous accompagnent dans tous les moments précieux de votre vie.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Années d'expertise</div>
+        </div>
+        <div>
+          <div class="stat-num" id="statNbProduits">—</div>
+          <div class="stat-label">Créations uniques</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Fait main</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <h2 class="contact-info-title">Parlons de<br/><em style="font-style:italic;color:var(--or-dark)">vos projets</em></h2>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-details">
+          <strong>Email</strong>
+          <a href="mailto:aidaguene05@gmail.com">aidaguene05@gmail.com</a><br/>
+          <span>Réponse sous 24h</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-details">
+          <strong>Téléphone</strong>
+          <span>+33 7 66 72 13 25</span><br/>
+          <span>Lun–Sam 9h–18h</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-details">
+          <strong>Atelier</strong>
+          <span>27 place Bobillot<br/>94220 Charenton-le-Pont — Sur RDV</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🚚</div>
+        <div class="contact-details">
+          <strong>Livraison</strong>
+          <span>France 2–4j · International 5–8j</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💳</div>
+        <div class="contact-details">
+          <strong>Paiement</strong>
+          <span>Virement · PayPal · Wave · 3x possible</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-title">Envoyer un message</div>
+      <div class="form-group">
+        <label>Nom complet</label>
+        <input type="text" id="nom" placeholder="Votre nom"/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="votre@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>Sujet</label>
+        <input type="text" id="sujet" placeholder="Commande, renseignement..."/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="message" placeholder="Décrivez votre projet..."></textarea>
+      </div>
+      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Envoyer le Message</button>
+      <div class="form-success" id="formSuccess">✓ Message envoyé — Aida vous répondra sous 24h !</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<div class="newsletter">
+  <div class="newsletter-tag">Cercle AVG HOUSE</div>
+  <h3>Restez dans l'univers</h3>
+  <p>Nouvelles créations, conseils d'entretien et offres exclusives</p>
+  <form class="newsletter-form" action="https://formspree.io/f/xgoadzgl" method="POST">
+    <input type="email" name="email" placeholder="votre@email.com" required/>
+    <button type="submit">S'inscrire</button>
+  </form>
 </div>
 
-<div class="product-card loading" onclick="openModal('Musc Sahar (5ml)', 'Musc Sahar, une fragrance douce et poudrée. Subtile et élégante, elle se porte au quotidien.', '4€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/musk_sahar.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Musc Sahar (5ml)</div>
-        <div class="product-description">Huile de parfum concentrée 5ml</div>
-        <div class="product-footer">
-            <div class="product-price">4€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-footer">AVG HOUSE</div>
+      <p>Maroquinerie artisanale & cosmétiques naturels. Créations uniques faites main en France.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/avgfashionhouse" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@avgfashionhouse" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://snapchat.com/t/SRmSSDER" target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+        <a href="https://wa.me/221785320060" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
+    <div class="footer-nav-group">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#produits">Collection</a></li>
+        <li><a href="#apropos">À Propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav-group">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions Légales</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav-group">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:aidaguene05@gmail.com">aidaguene05@gmail.com</a></li>
+        <li><a href="tel:+33766721325">+33 7 66 72 13 25</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AVG HOUSE — Aida Victoria Guene. Tous droits réservés.</span>
+    <span>Charenton-le-Pont, France</span>
+  </div>
+</footer>
+
+<!-- ── MODAL PRODUIT ── -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" style="position:relative">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modalImg">
+      <div class="placeholder-img">AVG</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="modal-cta" onclick="commanderProduit()">Commander ce Produit</button>
+    </div>
+  </div>
 </div>
 
-<div class="product-card loading" onclick="openModal('Faux Cils Volume', 'Cils de qualité professionnelle pour un regard intense et un volume spectaculaire. Faciles à poser et réutilisables.', '1,50€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/cils.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Faux Cils Volume</div>
-        <div class="product-description">Cils de qualité professionnelle</div>
-        <div class="product-footer">
-            <div class="product-price">1,50€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
+
+<!-- ── MODAL COMMANDE ── -->
+<div class="order-overlay" id="orderOverlay">
+  <div class="order-box">
+    <button class="order-close" onclick="closeOrderModal()">✕</button>
+
+    <!-- Succès -->
+    <div class="order-success" id="orderSuccess">
+      <div class="order-success-icon">✓</div>
+      <h3>Commande reçue !</h3>
+      <p>Aida a bien reçu votre commande et vous contactera personnellement sous 24h pour confirmer et organiser la livraison.</p>
     </div>
+
+    <!-- Formulaire -->
+    <div id="orderForm">
+      <div class="order-head">
+        <div class="order-title">Passer commande</div>
+        <div class="order-product-recap">
+          <img id="orderProductImg" class="order-product-img" src="" alt="" onerror="this.style.display='none'"/>
+          <div>
+            <div class="order-product-name" id="orderProductName"></div>
+            <div class="order-product-price" id="orderProductPrice"></div>
+          </div>
+        </div>
+      </div>
+      <div class="order-body">
+        <div class="order-row">
+          <div class="order-field">
+            <label>Prénom *</label>
+            <input type="text" id="orderPrenom" placeholder="Votre prénom"/>
+          </div>
+          <div class="order-field">
+            <label>Nom *</label>
+            <input type="text" id="orderNom" placeholder="Votre nom"/>
+          </div>
+        </div>
+        <div class="order-field">
+          <label>Email *</label>
+          <input type="email" id="orderEmail" placeholder="votre@email.com"/>
+        </div>
+        <div class="order-field">
+          <label>Téléphone</label>
+          <input type="tel" id="orderTel" placeholder="+33 ..."/>
+        </div>
+        <div class="order-row">
+          <div class="order-field">
+            <label>Quantité</label>
+            <input type="number" id="orderQte" value="1" min="1" max="99"/>
+          </div>
+          <div class="order-field">
+            <label>Mode de paiement</label>
+            <select id="orderPaiement">
+              <option value="">Choisir...</option>
+              <option value="Virement">Virement</option>
+              <option value="PayPal">PayPal</option>
+              <option value="Wave">Wave</option>
+              <option value="Paiement 3x">Paiement en 3x</option>
+            </select>
+          </div>
+        </div>
+        <div class="order-field">
+          <label>Note / Adresse de livraison</label>
+          <textarea id="orderNote" placeholder="Adresse, instructions spéciales..."></textarea>
+        </div>
+        <button class="order-submit" id="orderSubmitBtn" onclick="submitCommande()">
+          Confirmer la Commande
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="product-card loading" onclick="openModal('Gel Douche Naturel', 'Gel douche formulé avec des ingrédients naturels pour un nettoyage doux et une hydratation en profondeur.', '5€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/gel_douche.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Gel Douche Naturel</div>
-        <div class="product-description">Gel douche revitalisant 250ml</div>
-        <div class="product-footer">
-            <div class="product-price">5€</div>
-            <button class="view-details">Voir détails</button>
+<!-- WhatsApp -->
+<a href="https://wa.me/221785320060" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // ── CONFIG SUPABASE ──────────────────────────────────────────
+  const SUPABASE_URL = 'https://ugldfbyfeurbfkezindw.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_Vzudu-u21GebJdMADttzIw_8F7YeDZK';
+  const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // ── STATE ────────────────────────────────────────────────────
+  let allProduits = [];
+  let activeFilter = 'Tous';
+  let currentProduit = null;
+
+  // ── CHARGEMENT PRODUITS ──────────────────────────────────────
+  async function loadProduits() {
+    const { data, error } = await db
+      .from('produits')
+      .select('*')
+      .eq('actif', true)
+      .order('created_at', { ascending: false });
+
+    if (error || !data) {
+      renderGrid([]);
+      return;
+    }
+
+    allProduits = data;
+    document.getElementById('statNbProduits').textContent = data.length + '+';
+    renderGrid(data);
+    setupFilters();
+  }
+
+  // ── RENDU GRILLE ─────────────────────────────────────────────
+  function renderGrid(produits) {
+    const grid = document.getElementById('productGrid');
+    const count = document.getElementById('productsCount');
+
+    count.innerHTML = `<span>${produits.length}</span> création${produits.length > 1 ? 's' : ''}`;
+
+    if (produits.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-products">
+          <p>Aucune création dans cette catégorie</p>
+          <small>Découvrez les autres collections</small>
+        </div>`;
+      return;
+    }
+
+    // Stocker les produits dans un map global pour éviter les bugs JSON
+    window._produitsMap = {};
+    produits.forEach(p => { window._produitsMap[p.id] = p; });
+
+    grid.innerHTML = produits.map((p, i) => `
+      <div class="product-card reveal" style="animation-delay:${i * 0.06}s" data-id="${p.id}" onclick="openModalById('${p.id}')">
+        <div class="product-img-wrap">
+          ${p.image_url
+            ? `<img src="${p.image_url}" alt="${p.nom}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-img\\'>AVG</div>'"/>`
+            : `<div class="placeholder-img">AVG</div>`
+          }
+          <div class="product-overlay">
+            <div class="overlay-btn">Voir détails</div>
+          </div>
         </div>
-    </div>
-</div>
-
-<div class="product-card loading" onclick="openModal('Gommage Corporel', 'Exfoliant corporel pour une peau douce et renouvelée. Élimine les impuretés et les peaux mortes en douceur.', '3,50€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/gommage_corporel.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Gommage Corporel</div>
-        <div class="product-description">Gommage exfoliant doux</div>
-        <div class="product-footer">
-            <div class="product-price">3,50€</div>
-            <button class="view-details">Voir détails</button>
+        <div class="product-info">
+          <div class="product-cat">${p.categorie}</div>
+          <div class="product-name">${p.nom}</div>
+          <div class="product-desc">${p.description || ''}</div>
+          <div class="product-price">${p.prix}€</div>
         </div>
-    </div>
-</div>
+      </div>
+    `).join('');
 
-<div class="product-card loading" onclick="openModal('Lait Corporel Nourrissant', 'Lait corporel riche et nourrissant, idéal pour une hydratation quotidienne et une peau satinée.', '4€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/lait_corporel.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Lait Corporel Nourrissant</div>
-        <div class="product-description">Lait hydratant pour le corps</div>
-        <div class="product-footer">
-            <div class="product-price">4€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+    // Déclencher les animations reveal
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.product-card.reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 60);
+      });
+    });
+  }
 
-<div class="product-card loading" onclick="openModal('Savon Naturel Artisanal', 'Savon fabriqué selon une méthode artisanale. Nettoie et parfume délicatement la peau pour une utilisation quotidienne.', '2,50€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/savon.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Savon Naturel Artisanal</div>
-        <div class="product-description">Savon artisanal pour le corps</div>
-        <div class="product-footer">
-            <div class="product-price">2,50€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  // ── FILTRES ──────────────────────────────────────────────────
+  function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        activeFilter = this.dataset.cat;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
 
-<div class="product-card loading" onclick="openModal('Savon Nila Bleu', 'Savon enrichi en poudre de Nila Bleu, réputée pour ses propriétés éclaircissantes et adoucissantes sur la peau.', '6€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/savon_nila_bleu.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Savon Nila Bleu</div>
-        <div class="product-description">Savon éclaircissant & adoucissant</div>
-        <div class="product-footer">
-            <div class="product-price">6€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+        const filtered = activeFilter === 'Tous'
+          ? allProduits
+          : allProduits.filter(p => p.categorie === activeFilter);
 
-<div class="product-card loading" onclick="openModal('Parfum Sacandal Homme', 'Eau de parfum boisé et épicé, idéal pour l\'homme moderne. Formule longue tenue.', '25€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/sacandal_homme_kim_kardashians.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Parfum Sacandal Homme</div>
-        <div class="product-description">Eau de Parfum Homme</div>
-        <div class="product-footer">
-            <div class="product-price">25€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+        renderGrid(filtered);
+      });
+    });
+  }
 
-<div class="product-card loading" onclick="openModal('Parfum Kim Kardashians', 'Eau de parfum floral et sensuel, inspiré par la célébrité. Une fragrance féminine captivante.', '20€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/sacandal_homme_kim_kardashians.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Parfum Kim Kardashians</div>
-        <div class="product-description">Eau de Parfum Femme</div>
-        <div class="product-footer">
-            <div class="product-price">20€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  // ── MODAL ────────────────────────────────────────────────────
+  function openModalById(id) {
+    const produit = window._produitsMap[id];
+    if (!produit) return;
+    openModal(produit);
+  }
 
-<div class="product-card loading" onclick="openModal('Parfum Homme Idéal', 'Parfum classique et intemporel pour homme. Sillage puissant et notes raffinées pour une présence assurée.', '20€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/homme_ideal.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Parfum Homme Idéal</div>
-        <div class="product-description">Eau de Parfum Homme</div>
-        <div class="product-footer">
-            <div class="product-price">20€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  function openModal(produit) {
+    currentProduit = produit;
+    document.getElementById('modalCat').textContent = produit.categorie;
+    document.getElementById('modalTitle').textContent = produit.nom;
+    document.getElementById('modalDesc').textContent = produit.description || '';
+    document.getElementById('modalPrice').textContent = produit.prix + '€';
 
-<div class="product-card loading" onclick="openModal('Bracelet Moderne', 'Bracelet au design épuré et contemporain. Un accessoire tendance pour moderniser votre style.', '5€', 'Accessoires')">
-    <div class="product-image" style="background-image: url('images/bracelet.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Accessoires</div>
-        <div class="product-name">Bracelet Moderne</div>
-        <div class="product-description">Bracelet tendance et contemporain</div>
-        <div class="product-footer">
-            <div class="product-price">5€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+    const imgEl = document.getElementById('modalImg');
+    if (produit.image_url) {
+      imgEl.innerHTML = `<img src="${produit.image_url}" alt="${produit.nom}" style="width:100%;height:100%;object-fit:cover"/>`;
+    } else {
+      imgEl.innerHTML = `<div class="placeholder-img">AVG</div>`;
+    }
 
-<div class="product-card loading" onclick="openModal('Khâmarîn (Racine de Vétiver)', 'Ensemble de Khâmarîn (5 branches) composé de racine de vétiver parfumée. Traditionnellement utilisée comme plante médicinale, la racine de vétiver est reconnue pour ses propriétés digestives, apaisantes et détoxifiantes, et est un remède clé pour le bien-être féminin. Idéal pour parfumer et assainir votre intérieur.', '5€', 'Accessoires')">
-    <div class="product-image" style="background-image: url('images/khamarin.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Accessoires</div>
-        <div class="product-name">Khâmarîn (Racine de Vétiver)</div>
-        <div class="product-description">5 branches parfumées pour l'intérieur</div>
-        <div class="product-footer">
-            <div class="product-price">5€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+    document.getElementById('modalOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
 
-<div class="product-card loading" onclick="openModal('Diffuseur de Parfum Maison', 'Diffuseur de parfum élégant pour un intérieur parfumé. Idéal pour créer une ambiance relaxante et olfactive raffinée.', '6€', 'Cosmétiques')">
-    <div class="product-image" style="background-image: url('images/diffuseur_de_parfum_maison.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Cosmétiques</div>
-        <div class="product-name">Diffuseur de Parfum Maison</div>
-        <div class="product-description">Diffuseur d'ambiance de luxe</div>
-        <div class="product-footer">
-            <div class="product-price">6€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
 
-<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 1)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
-    <div class="product-image" style="background-image: url('images/baya_personnalisé.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Sur Mesure</div>
-        <div class="product-name">Baya Personnalisé 1</div>
-        <div class="product-description">Création unique de Baya</div>
-        <div class="product-footer">
-            <div class="product-price">7€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  function commanderProduit() {
+    if (!currentProduit) return;
+    closeModal();
+    openOrderModal(currentProduit);
+  }
 
-<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 2)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
-    <div class="product-image" style="background-image: url('images/baya_personnalisé1.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Sur Mesure</div>
-        <div class="product-name">Baya Personnalisé 2</div>
-        <div class="product-description">Création unique de Baya</div>
-        <div class="product-footer">
-            <div class="product-price">7€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+  // ── MODAL COMMANDE ───────────────────────────────────────────
+  function openOrderModal(produit) {
+    document.getElementById('orderProductName').textContent = produit.nom;
+    document.getElementById('orderProductPrice').textContent = produit.prix + '€';
+    const img = document.getElementById('orderProductImg');
+    if (produit.image_url) { img.src = produit.image_url; img.style.display = 'block'; }
+    else { img.style.display = 'none'; }
 
-<div class="product-card loading" onclick="openModal('Baya Personnalisé (Exemple 3)', 'Baya (collier/ceinture de perles) fait à la main. Design unique créé selon vos spécifications et vos couleurs. Contactez-nous pour une création sur mesure.', '7€', 'Sur Mesure')">
-    <div class="product-image" style="background-image: url('images/baya_personnalisé2.jpg');"></div>
-    <div class="product-info">
-        <div class="product-category">Sur Mesure</div>
-        <div class="product-name">Baya Personnalisé 3</div>
-        <div class="product-description">Création unique de Baya</div>
-        <div class="product-footer">
-            <div class="product-price">7€</div>
-            <button class="view-details">Voir détails</button>
-        </div>
-    </div>
-</div>
+    // Reset form
+    document.getElementById('orderPrenom').value = '';
+    document.getElementById('orderNom').value = '';
+    document.getElementById('orderEmail').value = '';
+    document.getElementById('orderTel').value = '';
+    document.getElementById('orderQte').value = '1';
+    document.getElementById('orderPaiement').value = '';
+    document.getElementById('orderNote').value = '';
+    document.getElementById('orderForm').style.display = 'block';
+    document.getElementById('orderSuccess').style.display = 'none';
+    document.getElementById('orderSubmitBtn').disabled = false;
+    document.getElementById('orderSubmitBtn').textContent = 'Confirmer la Commande';
 
-                <div class="product-card loading" onclick="openModal('Collection Sacoches', 'Ensemble de sacoches design aux lignes épurées. Gamme complète de tailles pour s\'adapter à chaque moment de votre journée avec élégance et praticité.', '8€', 'Maroquinerie')">
-                    <div class="product-image" style="background-image: url('images/collection_sacoches.jpg');"></div>
-                    <div class="product-info">
-                        <div class="product-category">Maroquinerie</div>
-                        <div class="product-name">Collection Sacoches</div>
-                        <div class="product-description">Design épuré, gamme complète de tailles</div>
-                        <div class="product-footer">
-                            <div class="product-price">Unite 8€</div>
-                            <button class="view-details">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    document.getElementById('orderOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
 
-    <section class="about" id="apropos">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>L'Artisane</h2>
-                    <p>Je suis <span class="about-highlight">Aida Victoria Guene</span>, créatrice passionnée et fondatrice d'AVG HOUSE. Mon univers se nourrit de l'excellence artisanale française et de l'innovation contemporaine.</p>
-                    <p>Depuis plus de 5 ans, je développe des créations uniques qui transcendent les tendances éphémères. Chaque pièce AVG HOUSE naît d'une quête d'authenticité et d'un savoir-faire transmis de génération en génération.</p>
-                    <p>Ma philosophie ? Créer des objets d'exception qui racontent votre histoire, révèlent votre personnalité et vous accompagnent dans tous les moments précieux de votre vie.</p>
-                </div>
-                <div class="about-image" style="background-image: url('images/aida_portrait.jpg');"></div>
-            </div>
-        </div>
-    </section>
+  function closeOrderModal() {
+    document.getElementById('orderOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Parlons de Vos Projets</h2>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <strong>Correspondance</strong>
-                            aidaguene05@gmail.com<br>
-                            <small>Réponse sous 24h</small>
-                        </div>
-                    </div>
+  async function submitCommande() {
+    const prenom = document.getElementById('orderPrenom').value.trim();
+    const nom = document.getElementById('orderNom').value.trim();
+    const email = document.getElementById('orderEmail').value.trim();
+    const tel = document.getElementById('orderTel').value.trim();
+    const qte = parseInt(document.getElementById('orderQte').value) || 1;
+    const paiement = document.getElementById('orderPaiement').value;
+    const note = document.getElementById('orderNote').value.trim();
+    const btn = document.getElementById('orderSubmitBtn');
 
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <strong>Conseil Personnalisé</strong>
-                            +33 7 66 72 13 25<br>
-                            <small>Lun-Sam 9h-18h</small>
-                        </div>
-                    </div>
+    if (!prenom || !nom || !email) {
+      alert('Veuillez remplir les champs obligatoires (prénom, nom, email).');
+      return;
+    }
 
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <strong>Atelier-Boutique</strong>
-                            27 place Bobillot<br>
-                            94220 Charenton-le-Pont, France<br>
-                            <small>Sur rendez-vous uniquement</small>
-                        </div>
-                    </div>
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
 
-                    <div class="contact-item">
-                        <div class="contact-icon">🚚</div>
-                        <div class="contact-details">
-                            <strong>Livraison Premium</strong>
-                            France: 2-4 jours ouvrés<br>
-                            International: 5-8 jours ouvrés<br>
-                            <small>Emballage soigné inclus</small>
-                        </div>
-                    </div>
+    // 1. Sauvegarder dans Supabase (dashboard d'Aida)
+    await db.from('commandes').insert({
+      client_nom: prenom + ' ' + nom,
+      client_email: email,
+      client_telephone: tel || null,
+      produit_id: currentProduit.id,
+      produit_nom: currentProduit.nom,
+      quantite: qte,
+      montant: currentProduit.prix * qte,
+      statut: 'en attente',
+      notes: (paiement ? 'Paiement: ' + paiement + ' — ' : '') + note
+    });
 
-                    <div class="contact-item">
-                        <div class="contact-icon">💳</div>
-                        <div class="contact-details">
-                            <strong>Paiement Sécurisé</strong>
-                            Virement • PayPal • Wave<br>
-                            <small>Paiement en 3x possible</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="nom">Nom complet</label>
-                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="sujet">Sujet de votre demande</label>
-                        <input type="text" id="sujet" name="sujet" required placeholder="Commande personnalisée, renseignement...">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Votre message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Décrivez-nous votre projet ou votre demande..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Envoyer le Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    // 2. Rediriger vers WhatsApp d'Aida
+    const montantTotal = (currentProduit.prix * qte).toFixed(2);
+    const msg = `🛍️ *Nouvelle Commande AVG HOUSE*
 
+*Produit :* ${currentProduit.nom}
+*Catégorie :* ${currentProduit.categorie}
+*Prix unitaire :* ${currentProduit.prix}€
+*Quantité :* ${qte}
+*Total :* ${montantTotal}€
 
-    <section class="newsletter-section">
-    <div class="newsletter-container">
-        <h2 class="newsletter-title">Rejoindre le Cercle AVG HOUSE</h2>
-        <p class="newsletter-subtitle">Inscrivez-vous pour recevoir nos dernières créations et conseils d'entretien.</p>
-        
-        <form action="https://formspree.io/f/xgoadzgl" method="POST" class="newsletter-form">
-            <input type="email" name="email" id="newsletterEmail" placeholder="votre-email-ici" required>
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
-        </form>
-        
-    </div>
-    </section>
+*Client :* ${prenom} ${nom}
+*Email :* ${email}
+${tel ? '*Téléphone :* ' + tel : ''}
+${paiement ? '*Paiement souhaité :* ' + paiement : ''}
+${note ? '*Note :* ' + note : ''}`;
 
+    const whatsappUrl = 'https://wa.me/33766721325?text=' + encodeURIComponent(msg);
 
-    <footer>
-        <div class="social-links">
-    <a href="https://www.instagram.com/avgfashionhouse?igsh=NDU0NnM4MjNoODcz&utm_source=qr" target="_blank" aria-label="Instagram de AVG HOUSE">
-        <i class="fab fa-instagram"></i>
-    </a>
-    
-    <a href="https://www.tiktok.com/@avgfashionhouse?_t=ZN-90rGPn7XcOI&_r=1" target="_blank" aria-label="TikTok de AVG HOUSE">
-        <i class="fab fa-tiktok"></i>   
-    </a>
-    
-    <a href="https://snapchat.com/t/SRmSSDER" target="_blank" aria-label="Snapchat de AVG HOUSE">
-        <i class="fab fa-snapchat-ghost"></i>
-    </a>
+    document.getElementById('orderForm').style.display = 'none';
+    document.getElementById('orderSuccess').style.display = 'block';
 
-</div>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AVG HOUSE</div>
-                <div class="footer-text">
-                    <p>&copy; 2025 AVG HOUSE - Aida Victoria Guene. Tous droits réservés.</p>
-                </div>
-                <ul class="footer-nav">
-                    <li><a href="mentions-legales.html">Mentions Légales</a></li>
-                    <li><a href="cgv.html">Conditions Générales de Vente</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    // Ouvrir WhatsApp après 1.5s
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+    }, 1500);
 
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle"></h3>
-            <div id="modalCategory"></div>
-            <p id="modalDescription"></p>
-            <p id="modalPrice"></p>
-            <button class="cta-button" onclick="contactForProduct()">Commander ce Produit</button>
-        </div>
-    </div>
+    setTimeout(() => closeOrderModal(), 4000);
+  }
 
-    <script>
-        function updateProgressBar() {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = (scrollTop / scrollHeight) * 100;
-            document.getElementById('progressBar').style.width = scrollPercent + '%';
-        }
+  // Fermer si clic en dehors
+  document.getElementById('orderOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeOrderModal();
+  });
 
-        function handleHeaderScroll() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        }
+  // ── FORMULAIRE CONTACT ───────────────────────────────────────
+  async function handleSubmit() {
+    const nom = document.getElementById('nom').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const sujet = document.getElementById('sujet').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const btn = document.getElementById('submitBtn');
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    if (!nom || !email || !message) { alert('Veuillez remplir les champs obligatoires.'); return; }
 
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.loading');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationDelay = Math.random() * 0.3 + 's';
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
 
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        }
+    // Sauvegarder dans Supabase
+    await db.from('messages').insert({ nom, email, sujet, contenu: message });
 
-        function openModal(title, description, price, category) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalCategory').textContent = category;
-            document.getElementById('modalDescription').textContent = description;
-            document.getElementById('modalPrice').textContent = price;
-            document.getElementById('productModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+    btn.textContent = 'Envoyer le Message';
+    btn.disabled = false;
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('nom').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('sujet').value = '';
+    document.getElementById('message').value = '';
 
-        function closeModal() {
-            document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'none';
+    }, 5000);
+  }
 
-        function contactForProduct() {
-            const productName = document.getElementById('modalTitle').textContent;
-            const category = document.getElementById('modalCategory').textContent;
-            const price = document.getElementById('modalPrice').textContent;
-            
-            const subject = `Commande ${category}: ${productName}`;
-            const message = `Bonjour Aida,\n\nJe suis intéressé(e) par le produit suivant:\n\n• Produit: ${productName}\n• Catégorie: ${category}\n• Prix: ${price}\n\nPourriez-vous me donner plus d'informations ?\n\nCordialement,`;
-            
-            document.getElementById('sujet').value = subject;
-            document.getElementById('message').value = message;
-            
-            closeModal();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            document.getElementById('nom').focus();
-        }
+  // ── HEADER SCROLL ────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('header');
+    const bar = document.getElementById('progressBar');
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const submitBtn = event.target.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Envoi en cours...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('✨ Merci pour votre message ! Aida vous répondra personnellement dans les plus brefs délais.');
-                event.target.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        }
+    h.classList.toggle('scrolled', scrollTop > 80);
+    bar.style.width = (scrollTop / scrollHeight * 100) + '%';
+  });
 
-        window.addEventListener('scroll', () => {
-            updateProgressBar();
-            handleHeaderScroll();
-        });
+  // ── MENU MOBILE ──────────────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileOverlay = document.getElementById('mobileOverlay');
 
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    mobileOverlay.classList.toggle('show');
+  });
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
+  mobileOverlay.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('open');
+    mobileOverlay.classList.remove('show');
+  });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- CODE POUR LE MENU HAMBURGER (à inclure dans toutes les pages) ---
-            const menuToggle = document.getElementById('menuToggle');
-            const navBar = document.getElementById('navbarNav');
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('open');
+      mobileOverlay.classList.remove('show');
+    });
+  });
 
-            if (menuToggle && navBar) {
-                menuToggle.addEventListener('click', function() {
-                    navBar.classList.toggle('open');
-                    this.classList.toggle('active');
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
-                    this.setAttribute('aria-expanded', !isExpanded);
-                });
+  // ── MODAL CLOSE ──────────────────────────────────────────────
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-                // Ferme le menu après avoir cliqué sur un lien (très important sur mobile)
-                navBar.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navBar.classList.contains('open')) {
-                            navBar.classList.remove('open');
-                            menuToggle.classList.remove('active');
-                            menuToggle.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                });
-            }
-            // --- FIN DU CODE MENU HAMBURGER ---
+  // ── SCROLL REVEAL ────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-            // --- EXÉCUTION DES FONCTIONS SPÉCIFIQUES À index.html ---
-            animateOnScroll();
-            updateProgressBar();
-            
-            const cards = document.querySelectorAll('.product-card.loading');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = (index * 0.1) + 's';
-            });
-        });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
-    <a href="https://wa.me/221785320060?text=Bonjour%20AVG%20HOUSE,%20je%20souhaiterais%20passer%20une%20commande." 
-   class="whatsapp-float" 
-   target="_blank" 
-   aria-label="Commander par WhatsApp">
-   <i class="fab fa-whatsapp"></i>
-    </a>
+  // ── SMOOTH SCROLL ────────────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── INIT ─────────────────────────────────────────────────────
+  loadProduits();
+</script>
 </body>
 </html>
-
