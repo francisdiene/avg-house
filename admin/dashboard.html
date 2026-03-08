@@ -498,6 +498,149 @@
     @media (max-width: 900px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ── MOBILE RESPONSIVE ── */
+    @media (max-width: 768px) {
+
+      /* Body en colonne */
+      body { flex-direction: column; }
+
+      /* Sidebar devient une topbar fixe */
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        z-index: 200;
+        height: 60px;
+        padding: 0 16px;
+      }
+
+      .sidebar-logo {
+        padding: 0;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sidebar-logo .title { font-size: 1.1rem; }
+      .sidebar-logo .sub { display: none; }
+
+      /* Nav devient menu bottom */
+      .sidebar-nav { display: none; }
+      .sidebar-footer { display: none; }
+
+      /* Bouton hamburger */
+      .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--blanc);
+        transition: all 0.3s;
+      }
+
+      /* Menu mobile overlay */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 60px; left: 0; right: 0; bottom: 0;
+        background: var(--sidebar);
+        z-index: 199;
+        flex-direction: column;
+        padding: 20px 0;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.open { display: flex; }
+
+      .mobile-menu .nav-section {
+        padding: 16px 24px 6px;
+      }
+
+      .mobile-menu .nav-item {
+        padding: 14px 24px;
+        font-size: 1rem;
+      }
+
+      .mobile-menu-footer {
+        margin-top: auto;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+      }
+
+      .mobile-admin-email {
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      /* Main content sous la topbar */
+      .main {
+        margin-left: 0;
+        margin-top: 60px;
+        padding: 20px 16px;
+      }
+
+      /* Stats grid 2 colonnes */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .stat-card { padding: 16px; }
+      .stat-value { font-size: 1.8rem; }
+
+      /* Tables scrollables */
+      .section-card { overflow-x: auto; }
+      table { min-width: 500px; }
+
+      th, td { padding: 10px 14px; font-size: 0.75rem; }
+
+      /* Section head */
+      .section-head { padding: 14px 16px; }
+      .section-head h3 { font-size: 0.72rem; }
+
+      /* Modal plein écran */
+      .modal {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .modal-overlay { align-items: flex-end; }
+      .modal { border-radius: 16px 16px 0 0; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Page header */
+      .page-title { font-size: 1.5rem; }
+      .page-header { margin-bottom: 20px; }
+
+      /* Toast */
+      .toast { bottom: 16px; right: 16px; left: 16px; text-align: center; }
+    }
+
+    /* Hamburger caché sur desktop */
+    .menu-toggle { display: none; }
+    .mobile-menu { display: none; }
   </style>
 </head>
 <body>
@@ -507,6 +650,11 @@
   <div class="sidebar-logo">
     <div class="title">AVG HOUSE</div>
     <div class="sub">Administration</div>
+  </div>
+
+  <!-- Hamburger (mobile only) -->
+  <div class="menu-toggle" onclick="toggleMobileMenu()" id="menuToggle">
+    <span></span><span></span><span></span>
   </div>
 
   <nav class="sidebar-nav">
@@ -542,6 +690,34 @@
     <button class="btn-logout" onclick="logout()">Déconnexion</button>
   </div>
 </aside>
+
+<!-- MENU MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="nav-section">Principal</div>
+  <a class="nav-item" onclick="showPage('dashboard'); closeMobileMenu()">
+    <span class="icon">◈</span> Vue d'ensemble
+  </a>
+  <div class="nav-section">Boutique</div>
+  <a class="nav-item" onclick="showPage('produits'); closeMobileMenu()">
+    <span class="icon">◇</span> Produits
+  </a>
+  <a class="nav-item" onclick="showPage('commandes'); closeMobileMenu()">
+    <span class="icon">◻</span> Commandes
+    <span class="nav-badge" id="badgeCommandes2">0</span>
+  </a>
+  <div class="nav-section">Communication</div>
+  <a class="nav-item" onclick="showPage('messages'); closeMobileMenu()">
+    <span class="icon">✉</span> Messages
+    <span class="nav-badge" id="badgeMessages2">0</span>
+  </a>
+  <a class="nav-item" onclick="showPage('stats'); closeMobileMenu()">
+    <span class="icon">◉</span> Statistiques
+  </a>
+  <div class="mobile-menu-footer">
+    <span class="mobile-admin-email" id="mobileAdminEmail">—</span>
+    <button class="btn-logout" style="width:100%" onclick="logout()">Déconnexion</button>
+  </div>
+</div>
 
 <!-- MAIN -->
 <main class="main">
@@ -700,8 +876,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // ── CONFIG ──────────────────────────────────────────────────
-  const SUPABASE_URL = 'https://ugldfbyfeurbfkezindw.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_Vzudu-u21GebJdMADttzIw_8F7YeDZK';
+  const SUPABASE_URL = 'https://VOTRE_PROJECT_ID.supabase.co';
+  const SUPABASE_ANON_KEY = 'VOTRE_ANON_KEY';
   const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // ── AUTH ─────────────────────────────────────────────────────
@@ -709,8 +885,24 @@
     const { data: { session } } = await db.auth.getSession();
     if (!session) { window.location.href = 'index.html'; return; }
     document.getElementById('adminEmail').textContent = session.user.email;
+    if(document.getElementById('mobileAdminEmail')) document.getElementById('mobileAdminEmail').textContent = session.user.email;
     initDashboard();
   })();
+
+  // ── MENU MOBILE ──────────────────────────────────────────────
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const toggle = document.getElementById('menuToggle');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && toggle && !toggle.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
 
   async function logout() {
     await db.auth.signOut();
