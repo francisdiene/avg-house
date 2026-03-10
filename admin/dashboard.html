@@ -643,7 +643,7 @@
     .mobile-menu { display: none; }
   </style>
 </head>
-<body>
+<body style="visibility:hidden">
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
@@ -902,20 +902,33 @@
   // ── AUTH ─────────────────────────────────────────────────────
   let dashboardInitialized = false;
 
-  db.auth.onAuthStateChange((event, session) => {
-    if (event === 'SIGNED_OUT' || (!session && event !== 'INITIAL_SESSION')) {
-      window.location.href = 'index.html';
+  // Vérification stricte AVANT d'afficher quoi que ce soit
+  (async () => {
+    const { data: { session } } = await db.auth.getSession();
+
+    if (!session) {
+      // Pas de session → redirection immédiate
+      window.location.replace('index.html');
       return;
     }
-    if (session && !dashboardInitialized) {
-      dashboardInitialized = true;
-      document.getElementById('adminEmail').textContent = session.user.email;
-      if (document.getElementById('mobileAdminEmail')) {
-        document.getElementById('mobileAdminEmail').textContent = session.user.email;
-      }
-      initDashboard();
+
+    // Session valide → afficher le dashboard
+    document.body.style.visibility = 'visible';
+    document.getElementById('authLoader').style.display = 'none';
+    document.getElementById('adminEmail').textContent = session.user.email;
+    if (document.getElementById('mobileAdminEmail')) {
+      document.getElementById('mobileAdminEmail').textContent = session.user.email;
     }
-  });
+    dashboardInitialized = true;
+    initDashboard();
+
+    // Surveiller la déconnexion en temps réel
+    db.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        window.location.replace('index.html');
+      }
+    });
+  })();
 
   // ── MENU MOBILE ──────────────────────────────────────────────
   function toggleMobileMenu() {
