@@ -895,8 +895,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // ── CONFIG ──────────────────────────────────────────────────
-  const SUPABASE_URL = 'https://VOTRE_PROJECT_ID.supabase.co';
-  const SUPABASE_ANON_KEY = 'VOTRE_ANON_KEY';
+  const SUPABASE_URL = 'https://ugldfbyfeurbfkezindw.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_Vzudu-u21GebJdMADttzIw_8F7YeDZK';
   const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // ── AUTH ─────────────────────────────────────────────────────
@@ -904,7 +904,9 @@
 
   // Vérification stricte AVANT d'afficher quoi que ce soit
   (async () => {
+    console.log('1. Vérification session...');
     const { data: { session } } = await db.auth.getSession();
+    console.log('2. Session:', session ? 'TROUVÉE' : 'ABSENTE');
 
     if (!session) {
       // Pas de session → redirection immédiate
