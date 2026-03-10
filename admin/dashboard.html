@@ -908,7 +908,7 @@
 
     if (!session) {
       // Pas de session → redirection immédiate
-      window.location.replace('index.html');
+      window.location.replace('/admin/');
       return;
     }
 
@@ -925,7 +925,7 @@
     // Surveiller la déconnexion en temps réel
     db.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_OUT') {
-        window.location.replace('index.html');
+        window.location.replace('/admin/');
       }
     });
   })();
@@ -947,7 +947,7 @@
 
   async function logout() {
     await db.auth.signOut();
-    window.location.href = 'index.html';
+    window.location.replace('/admin/');
   }
 
   // ── NAVIGATION ───────────────────────────────────────────────
